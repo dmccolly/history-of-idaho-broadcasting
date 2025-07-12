@@ -44,6 +44,8 @@ This project includes a basic Contentful client in `lib/contentful.ts`. To enabl
 ```bash
 CONTENTFUL_SPACE_ID=your-space-id
 CONTENTFUL_DELIVERY_TOKEN=your-delivery-token
+CONTENTFUL_ENVIRONMENT=master
 ```
 
 You can then fetch entries using `getEntries('yourContentType')`.
+To fetch a single entry by ID, use `getEntry('entryId')`.
