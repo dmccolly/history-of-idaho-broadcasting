@@ -1,0 +1,47 @@
+/* FORCE HIDE ANY CHECKMARK ELEMENTS */
+
+/* Hide any SVG with the specific viewBox that's causing issues */
+svg[viewBox="0 0 88 88"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Hide any circular elements that might be checkmarks */
+svg circle + path {
+  display: none !important;
+}
+
+/* Hide any fixed position overlays */
+.fixed.inset-0 {
+  display: none !important;
+}
+
+/* Hide any absolute positioned groups that might be video overlays */
+.absolute.group {
+  display: none !important;
+}
+
+/* Force hide any element with high z-index that might be covering content */
+*[style*="z-index: 99999"],
+*[style*="z-index:99999"] {
+  display: none !important;
+}
+
+/* Hide any modal backdrop that might be stuck */
+[class*="backdrop"],
+[class*="overlay"] {
+  display: none !important;
+}
+
+/* Ensure body is not covered by any overlay */
+body::before,
+body::after {
+  display: none !important;
+}
+
+/* Force reset any transforms that might be stuck */
+* {
+  transform: none !important;
+}
+
