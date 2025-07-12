@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react'
 import type { StaticImageData } from 'next/image'
-import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
+import { Dialog, Transition } from '@headlessui/react'
 import Image from 'next/image'
 
 interface ModalVideo01Props {
@@ -49,31 +49,38 @@ export default function ModalVideo01({
         initialFocus={videoRef}
         open={modalOpen}
         onClose={() => setModalOpen(false)}
+        className="fixed inset-0 z-99999 flex px-4 py-6 sm:px-6"
       >
+        <Transition.Child
+          as="div"
+          enter="ease-out duration-300"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="ease-in duration-200"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <div className="fixed inset-0 bg-black/70" />
+        </Transition.Child>
 
-        {/* Modal backdrop */}
-        <DialogBackdrop
-          transition
-          className="fixed inset-0 z-99999 bg-black/70 transition-opacity duration-300 ease-out data-closed:opacity-0"
-        />
-        {/* End: Modal backdrop */}
-
-        {/* Modal dialog */}
-        <div className="fixed inset-0 z-99999 flex px-4 py-6 sm:px-6">
-          <div className="mx-auto flex h-full max-w-6xl items-center">
-            <DialogPanel
-              transition
-              className="aspect-video max-h-full w-full overflow-hidden bg-black shadow-2xl duration-300 ease-out data-closed:scale-95 data-closed:opacity-0"
-            >
+        <div className="mx-auto flex h-full max-w-6xl items-center">
+          <Transition.Child
+            as="div"
+            enter="ease-out duration-300"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
+          >
+            <Dialog.Panel className="aspect-video max-h-full w-full overflow-hidden bg-black shadow-2xl">
               <video ref={videoRef} width={videoWidth} height={videoHeight} loop controls>
                 <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </DialogPanel>
-          </div>
+            </Dialog.Panel>
+          </Transition.Child>
         </div>
-        {/* End: Modal dialog */}
-
       </Dialog>
 
     </div>
