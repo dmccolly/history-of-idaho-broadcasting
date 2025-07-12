@@ -52,13 +52,28 @@ export default function Customers() {
                 <div className="relative">
                   <div className="absolute inset-0 pointer-events-none border-2 border-slate-200 -translate-x-4 -translate-y-4 -z-10" aria-hidden="true"></div>
                   <Image className="mx-auto md:max-w-none" src={Customers01} width={540} height={405} alt="Customer 01" />
+                  <button
+                    className="absolute inset-0 flex items-center justify-center group"
+                    aria-label="Watch the video"
+                  >
+                    <svg
+                      className="w-16 h-16 fill-current sm:w-20 sm:h-20"
+                      viewBox="0 0 88 88"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        className="text-white opacity-80 group-hover:opacity-100 transition duration-150 ease-in-out"
+                        cx="44"
+                        cy="44"
+                        r="44"
+                      />
+                      <path
+                        className="text-blue-600"
+                        d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"
+                      />
+                    </svg>
+                  </button>
                 </div>
-                <button className="absolute group">
-                  <svg className="w-16 h-16 fill-current sm:w-20 sm:h-20 group" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
-                    <circle className="text-white opacity-80 group-hover:opacity-100 transition duration-150 ease-in-out" cx="44" cy="44" r="44" />
-                    <path className="text-blue-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z" />
-                  </svg>
-                </button>
               </div>
 
             </div>
@@ -95,13 +110,28 @@ export default function Customers() {
                 <div className="relative">
                   <div className="absolute inset-0 pointer-events-none border-2 border-slate-200 translate-x-4 -translate-y-4 -z-10" aria-hidden="true"></div>
                   <Image className="mx-auto md:max-w-none" src={Customers02} width={540} height={405} alt="Customer 02" />
+                  <button
+                    className="absolute inset-0 flex items-center justify-center group"
+                    aria-label="Watch the video"
+                  >
+                    <svg
+                      className="w-16 h-16 fill-current sm:w-20 sm:h-20"
+                      viewBox="0 0 88 88"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        className="text-white opacity-80 group-hover:opacity-100 transition duration-150 ease-in-out"
+                        cx="44"
+                        cy="44"
+                        r="44"
+                      />
+                      <path
+                        className="text-blue-600"
+                        d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"
+                      />
+                    </svg>
+                  </button>
                 </div>
-                <button className="absolute group">
-                  <svg className="w-16 h-16 fill-current sm:w-20 sm:h-20 group" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
-                    <circle className="text-white opacity-80 group-hover:opacity-100 transition duration-150 ease-in-out" cx="44" cy="44" r="44" />
-                    <path className="text-blue-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z" />
-                  </svg>
-                </button>
               </div>
 
             </div>
@@ -138,13 +168,28 @@ export default function Customers() {
                 <div className="relative">
                   <div className="absolute inset-0 pointer-events-none border-2 border-slate-200 -translate-x-4 -translate-y-4 -z-10" aria-hidden="true"></div>
                   <Image className="mx-auto md:max-w-none" src={Customers03} width={540} height={405} alt="Customer 03" />
+                  <button
+                    className="absolute inset-0 flex items-center justify-center group"
+                    aria-label="Watch the video"
+                  >
+                    <svg
+                      className="w-16 h-16 fill-current sm:w-20 sm:h-20"
+                      viewBox="0 0 88 88"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        className="text-white opacity-80 group-hover:opacity-100 transition duration-150 ease-in-out"
+                        cx="44"
+                        cy="44"
+                        r="44"
+                      />
+                      <path
+                        className="text-blue-600"
+                        d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"
+                      />
+                    </svg>
+                  </button>
                 </div>
-                <button className="absolute group">
-                  <svg className="w-16 h-16 fill-current sm:w-20 sm:h-20 group" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
-                    <circle className="text-white opacity-80 group-hover:opacity-100 transition duration-150 ease-in-out" cx="44" cy="44" r="44" />
-                    <path className="text-blue-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z" />
-                  </svg>
-                </button>
               </div>
 
             </div>
