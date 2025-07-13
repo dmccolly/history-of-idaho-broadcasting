@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npx @tinacms/cli dev -c \"next dev\"",
-    "build": "npx @tinacms/cli build && next build",
+    "build": "npm install && npx @tinacms/cli build && next build",
     "start": "next start",
     "lint": "next lint",
     "update-news": "node scripts/update-news.js"
