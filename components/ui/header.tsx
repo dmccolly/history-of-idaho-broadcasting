@@ -42,9 +42,6 @@ export default function Header({ mode = 'dark' }: {
                   <Link href="/about" className="font-medium text-sm text-gray-600 hover:text-blue-600 flex py-2 px-5 leading-tight">About/Contact</Link>
                 </li>
                 <li>
-                  <Link href="/news" className="font-medium text-sm text-gray-600 hover:text-blue-600 flex py-2 px-5 leading-tight">News/Social</Link>
-                </li>
-                <li>
                   <Link href="/support" className="font-medium text-sm text-gray-600 hover:text-blue-600 flex py-2 px-5 leading-tight">Support</Link>
                 </li>
               </Dropdown>
