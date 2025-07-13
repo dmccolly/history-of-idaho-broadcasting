@@ -45,7 +45,7 @@ export default function ModalVideo02({
           initialFocus={videoRef}
           open={modalOpen}
           onClose={() => setModalOpen(false)}
-          className="fixed inset-0 z-99999 flex px-4 py-6 sm:px-6"
+          className="fixed inset-0 z-50 flex px-4 py-6 sm:px-6"
         >
           <Transition.Child
             as="div"
