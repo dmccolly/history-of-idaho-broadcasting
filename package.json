@@ -41,6 +41,7 @@
     "typescript": "^5"
   },
   "devDependencies": {
-    "@types/aos": "^3.0.7"
+    "@types/aos": "^3.0.7",
+    "sharp": "^0.34.3"
   }
 }
