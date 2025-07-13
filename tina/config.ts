@@ -5,14 +5,11 @@ const branch = "main";
 
 export default defineConfig({
   branch,
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
-  token: process.env.TINA_TOKEN || null,
   
-  // Use local mode for development
-  ...(process.env.NODE_ENV === 'development' && {
-    clientId: null,
-    token: null,
-  }),
+  // Use local mode for both development and production builds
+  // This avoids authentication issues during static export
+  clientId: null,
+  token: null,
 
   build: {
     outputFolder: "admin",
