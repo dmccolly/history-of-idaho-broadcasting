@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npx @tinacms/cli dev -c \"next dev\"",
-    "build": "npm install && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "update-news": "node scripts/update-news.js"
@@ -17,11 +17,7 @@
     "@next/mdx": "^14.0.3",
     "@supabase/supabase-js": "^2.50.5",
     "@tailwindcss/forms": "^0.5.7",
-
     "@tailwindcss/typography": "^0.5.10",
-    "@tinacms/auth": "^1.1.0",
-    "@tinacms/cli": "^1.6.7",
-    "tinacms": "^1.6.7",
     "@types/mdx": "^2.0.10",
     "@types/node": "^20",
     "@types/react": "^18",
