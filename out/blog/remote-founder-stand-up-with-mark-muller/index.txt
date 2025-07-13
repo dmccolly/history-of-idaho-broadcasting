@@ -1,6 +1,6 @@
 1:HL["/_next/static/css/ed5c0e527bc7c5ea.css","style",{"crossOrigin":""}]
 2:HL["/_next/static/css/6f419f41926a0a85.css","style",{"crossOrigin":""}]
-0:["omN_KR8hW7kM0X8YJKdi_",[[["",{"children":["(default)",{"children":["blog",{"children":[["slug","remote-founder-stand-up-with-mark-muller","d"],{"children":["__PAGE__?{\"slug\":\"remote-founder-stand-up-with-mark-muller\"}",{}]}]}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/ed5c0e527bc7c5ea.css","precedence":"next","crossOrigin":""}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/6f419f41926a0a85.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
+0:["NQjJVuTnB_CBTKUN7CUf4",[[["",{"children":["(default)",{"children":["blog",{"children":[["slug","remote-founder-stand-up-with-mark-muller","d"],{"children":["__PAGE__?{\"slug\":\"remote-founder-stand-up-with-mark-muller\"}",{}]}]}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/ed5c0e527bc7c5ea.css","precedence":"next","crossOrigin":""}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/6f419f41926a0a85.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
 5:I[169,["185","static/chunks/app/layout-ea0adae430e689d4.js"],""]
 6:I[6954,[],""]
 7:I[7264,[],""]
