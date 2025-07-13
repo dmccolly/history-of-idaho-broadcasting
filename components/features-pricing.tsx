@@ -14,7 +14,7 @@ export default function FeaturesPricing() {
 
             {/* 1st item */}
             <div className="relative" data-aos="fade-up">
-              <svg className="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <svg className="w-8 h-8 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
                   <filter x="-50%" y="-35.7%" width="200%" height="200%" filterUnits="objectBoundingBox" id="fbp1-a">
                     <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
@@ -64,7 +64,7 @@ export default function FeaturesPricing() {
 
             {/* 2nd item */}
             <div className="relative" data-aos="fade-up" data-aos-delay="100">
-              <svg className="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <svg className="w-8 h-8 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
                   <filter x="-70.7%" y="-50%" width="241.3%" height="240%" filterUnits="objectBoundingBox" id="fbp2-a">
                     <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
@@ -106,7 +106,7 @@ export default function FeaturesPricing() {
 
             {/* 3rd item */}
             <div className="relative" data-aos="fade-up" data-aos-delay="200">
-              <svg className="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <svg className="w-8 h-8 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
                   <filter x="-35%" y="-25%" width="170%" height="170%" filterUnits="objectBoundingBox" id="fbp3-a">
                     <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />

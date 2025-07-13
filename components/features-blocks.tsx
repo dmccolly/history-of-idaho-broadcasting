@@ -17,7 +17,7 @@ export default function FeaturesBlocks() {
 
             {/* 1st item */}
             <div className="relative" data-aos="fade-up" data-aos-anchor="[data-aos-id-blocks]">
-              <svg className="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <svg className="w-8 h-8 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
                   <filter x="-17.5%" y="-10.4%" width="135%" height="129.2%" filterUnits="objectBoundingBox" id="fb1-a">
                     <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
@@ -49,7 +49,7 @@ export default function FeaturesBlocks() {
 
             {/* 2nd item */}
             <div className="relative" data-aos="fade-up" data-aos-anchor="[data-aos-id-blocks]" data-aos-delay="100">
-              <svg className="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <svg className="w-8 h-8 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
                   <filter x="-12.1%" y="-13.2%" width="124.1%" height="136.8%" filterUnits="objectBoundingBox" id="fb2-a">
                     <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
@@ -86,7 +86,7 @@ export default function FeaturesBlocks() {
 
             {/* 3rd item */}
             <div className="relative" data-aos="fade-up" data-aos-anchor="[data-aos-id-blocks]" data-aos-delay="200">
-              <svg className="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <svg className="w-8 h-8 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
                   <filter x="-58.3%" y="-17.9%" width="216.7%" height="150%" filterUnits="objectBoundingBox" id="fb3-a">
                     <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
@@ -118,7 +118,7 @@ export default function FeaturesBlocks() {
 
             {/* 4th item */}
             <div className="relative" data-aos="fade-up" data-aos-anchor="[data-aos-id-blocks]" data-aos-delay="300">
-              <svg className="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <svg className="w-8 h-8 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
                   <filter x="-29.2%" y="-11.5%" width="158.3%" height="132.2%" filterUnits="objectBoundingBox" id="fb4-a">
                     <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
@@ -150,7 +150,7 @@ export default function FeaturesBlocks() {
 
             {/* 5th item */}
             <div className="relative" data-aos="fade-up" data-aos-anchor="[data-aos-id-blocks]" data-aos-delay="400">
-              <svg className="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <svg className="w-8 h-8 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
                   <filter x="-29.2%" y="-22.7%" width="158.3%" height="163.6%" filterUnits="objectBoundingBox" id="fb5-a">
                     <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
@@ -182,7 +182,7 @@ export default function FeaturesBlocks() {
 
             {/* 6th item */}
             <div className="relative" data-aos="fade-up" data-aos-anchor="[data-aos-id-blocks]" data-aos-delay="500">
-              <svg className="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <svg className="w-8 h-8 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
                   <filter x="-14.6%" y="-11.4%" width="129.2%" height="132%" filterUnits="objectBoundingBox" id="fb6-a">
                     <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
