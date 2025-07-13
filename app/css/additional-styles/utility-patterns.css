@@ -74,7 +74,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .form-checkbox,
 .form-radio {
-    @apply text-blue-600 checked:bg-blue-600 checked:border-transparent focus-visible:not-checked:border-blue-600;
+    @apply text-blue-600 checked:bg-blue-600 checked:border-transparent focus:border-blue-600;
 }
 
 .form-checkbox {
