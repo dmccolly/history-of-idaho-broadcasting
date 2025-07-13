@@ -1,10 +1,11 @@
 [build]
   publish = "out"
-  command = "npm run build"
+  command = "npm install && npm run build"
 
 [build.environment]
   NODE_ENV = "production"
   NEXT_TELEMETRY_DISABLED = "1"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 [[redirects]]
   from = "/*"
@@ -17,12 +18,3 @@
   from = "/*"
   to = "/404.html"
   status = 404
-
-[context.production]
-  command = "pnpm install --no-frozen-lockfile && npm run build"
-
-[context.deploy-preview]
-  command = "pnpm install --no-frozen-lockfile && npm run build"
-
-[context.branch-deploy]
-  command = "pnpm install --no-frozen-lockfile && npm run build"
