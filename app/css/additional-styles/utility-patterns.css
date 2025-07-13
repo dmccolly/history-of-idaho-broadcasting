@@ -28,7 +28,7 @@
 /* Buttons */
 .btn,
 .btn-sm {
-    @apply font-medium inline-flex items-center justify-center border border-transparent rounded-xs leading-snug transition duration-150 ease-in-out;
+    @apply font-medium inline-flex items-center justify-center border border-transparent rounded-sm leading-snug transition duration-150 ease-in-out;
 }
 
 .btn {
@@ -53,7 +53,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .form-select,
 .form-checkbox,
 .form-radio {
-    @apply rounded-xs border border-slate-200 focus:ring-0 focus:ring-offset-0;
+    @apply rounded-sm border border-slate-200 focus:ring-0 focus:ring-offset-0;
 }
 
 .form-input,
@@ -78,7 +78,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .form-checkbox {
-    @apply rounded-xs;
+    @apply rounded-sm;
 }
 
 /* Chrome, Safari and Opera */
