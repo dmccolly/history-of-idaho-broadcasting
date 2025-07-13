@@ -6,7 +6,7 @@ import Image from 'next/image'
 import PostDate from '@/components/post-date'
 import { CustomMDX } from '@/components/mdx/mdx'
 import Separator from '@/components/separator'
-import Newsletter from '@/components/newsletter'
+// Newsletter import removed
 
 export async function generateStaticParams() {
   const allBlogs = getBlogPosts();
@@ -136,7 +136,7 @@ export default async function SinglePost(
       
       <Separator />
       
-      <Newsletter />
+      {/* Newsletter component removed */}
     </>
   )
 }
