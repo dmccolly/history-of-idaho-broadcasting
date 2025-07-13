@@ -26,8 +26,8 @@ export default function Newsletter() {
                     <input type="email" className="form-input w-full appearance-none bg-slate-800 border border-slate-700 focus:border-slate-600 rounded-xs px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-slate-500" placeholder="Your email" aria-label="Your email…" />
                     <button className="btn text-white bg-blue-600 hover:bg-blue-700">Subscribe</button>
                   </div>
-                  {/* Success message */}
-                  {/* <p class="text-xs text-slate-500 mt-3 italic">Thanks for subscribing!</p> */}
+                  {/* Success message - Removed persistent notification */}
+                  {/* <div className="fixed inset-0 z-50"></div> */}
                   <p className="text-xs text-slate-500 mt-3 italic">No spam. You can unsubscribe at any time.</p>
                 </form>
               </div>
