@@ -1,12 +1,18 @@
 import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
-const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
+const branch = "main";
 
 export default defineConfig({
   branch,
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
-  token: process.env.TINA_TOKEN!,
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
+  token: process.env.TINA_TOKEN || null,
+  
+  // Use local mode for development
+  ...(process.env.NODE_ENV === 'development' && {
+    clientId: null,
+    token: null,
+  }),
 
   build: {
     outputFolder: "admin",
