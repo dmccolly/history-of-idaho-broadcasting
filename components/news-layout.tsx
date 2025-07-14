@@ -77,13 +77,13 @@ function CompactNewsFeed() {
     }
   ]
 
-  const categoryColors = {
+  const categoryColors: Record<string, string> = {
     industry: 'bg-blue-100 text-blue-800',
     local: 'bg-green-100 text-green-800',
     social: 'bg-purple-100 text-purple-800'
   }
 
-  const categoryLabels = {
+  const categoryLabels: Record<string, string> = {
     industry: 'Industry',
     local: 'Local',
     social: 'Social'
@@ -166,8 +166,8 @@ function CompactNewsFeed() {
           return (
             <article key={item.id} className="border-b border-slate-100 pb-4 last:border-b-0">
               <div className="flex items-start justify-between mb-2">
-                <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${categoryColors[item.category]}`}>
-                  {item.category === 'local' ? 'Idaho' : categoryLabels[item.category]}
+                <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${categoryColors[item.category] || 'bg-gray-100 text-gray-800'}`}>
+                  {item.category === 'local' ? 'Idaho' : (categoryLabels[item.category] || item.category)}
                 </span>
                 <span className="text-xs text-slate-500">{new Date(item.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
               </div>
