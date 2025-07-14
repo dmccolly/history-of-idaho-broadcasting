@@ -3,8 +3,8 @@
 import { storyblokEditable, StoryblokComponent } from '@/lib/storyblok'
 import { SbBlokData } from '@storyblok/react'
 
-interface PageStoryblok {
-  title: string
+interface PageStoryblok extends SbBlokData {
+  title: string;
   slug: string
   meta_description?: string
   hero_section?: SbBlokData[]
