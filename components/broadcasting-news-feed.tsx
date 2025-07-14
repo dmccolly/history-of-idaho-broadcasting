@@ -14,146 +14,98 @@ interface NewsItem {
 const newsData: NewsItem[] = [
   {
     id: 1,
-    title: "FCC Seeks Comments on 39% National TV Ownership Cap",
-    excerpt: "The FCC has set comment dates for updating the record on the 39% national television ownership cap, with comments due August 4 and replies by August 22. The proceeding examines whether the cap should be raised as broadcasters face increased competition from streaming services.",
-    source: "Broadcast Law Blog",
-    date: "July 9, 2025",
-    category: "industry"
+    title: "Idaho Public Television Opens Boise Studio",
+    excerpt: "Idaho Public Television unveiled a state-of-the-art production facility in downtown Boise, expanding opportunities for local programming and community outreach.",
+    source: "Idaho Press",
+    date: "July 11, 2025",
+    category: "local"
   },
   {
     id: 2,
-    title: "Radio Groups Push for Indefinite Approval of Expanded AM Band Policy",
-    excerpt: "Four radio groups are asking the FCC to keep a rule that allows them to continue operating in the expanded AM band. The request comes as FCC Chair Brendan Carr's push to clear out dormant proceedings has opened the door for broadcasters to secure permanent approval.",
+    title: "KTVB Marks 70 Years Serving the Treasure Valley",
+    excerpt: "Boise's NBC affiliate celebrated its 70th anniversary with a week of on-air retrospectives and a community open house at the station.",
+    source: "BoiseDev",
+    date: "July 10, 2025",
+    category: "local"
+  },
+  {
+    id: 3,
+    title: "Boise State Public Radio Names New Morning Edition Host",
+    excerpt: "The station announced journalist Alex Jensen will take over hosting duties, bringing fresh energy to the daily news program.",
+    source: "Boise State Public Radio",
+    date: "July 9, 2025",
+    category: "local"
+  },
+  {
+    id: 4,
+    title: "Veteran Anchor Retires from Spokane's KXLY-TV",
+    excerpt: "After more than four decades on the air, KXLY anchor Mark Peterson signed off for the final time, prompting tributes from viewers across the Inland Northwest.",
+    source: "Spokesman-Review",
+    date: "July 8, 2025",
+    category: "local"
+  },
+  {
+    id: 5,
+    title: "FCC Opens Comment Period on AM Radio Revitalization",
+    excerpt: "Regulators are seeking input on new proposals aimed at strengthening AM broadcasting, including potential technical upgrades and streamlined licensing.",
     source: "Radio World",
     date: "July 11, 2025",
     category: "industry"
   },
   {
-    id: 3,
-    title: "Broadcasters to FCC: Expand Who Pays Regulatory Fees",
-    excerpt: "Under federal law, the FCC must collect annual regulatory fees from the industries it oversees to fund its operations. Broadcasters are pushing for an expanded base of who pays these fees as the regulatory landscape evolves.",
-    source: "Broadband Breakfast",
-    date: "July 11, 2025",
-    category: "industry"
-  },
-  {
-    id: 4,
-    title: "Educational FM Rise Hints at Deregulation's Future",
-    excerpt: "With FM educational stations adding 333 new licenses in one year, some see a preview of what radio could look like if ownership limits loosen. The growth suggests potential changes in the regulatory environment.",
-    source: "Radio Ink",
-    date: "July 9, 2025",
-    category: "industry"
-  },
-  {
-    id: 5,
-    title: "Soros Fires Back at Warshaw Over Audacy CEO Deal Dispute",
-    excerpt: "The legal standoff between Connoisseur Media CEO Jeffrey Warshaw and Soros Fund Management escalated as both SFM and its Head of Media Investments filed aggressive responses seeking to dismantle Warshaw's lawsuit over promised Audacy CEO role.",
-    source: "Radio Ink",
-    date: "July 11, 2025",
-    category: "industry"
-  },
-  {
     id: 6,
-    title: "iHeartMedia Chicago Recruits Kashon Powell As VP/Programming",
-    excerpt: "Kashon Powell, who was notably the first female VP of Programming at Radio One, has joined iHeartMedia Chicago as VP of Programming for urban contemporary WGCI, urban AC V103, inspirational gospel WGRB, and talk BIN 640. She begins August 18.",
-    source: "Inside Radio",
+    title: "NAB Petitions FCC Over Proposed Ownership Rules",
+    excerpt: "The National Association of Broadcasters filed a formal petition urging the commission to reconsider limits on local station ownership.",
+    source: "Broadcasting & Cable",
     date: "July 11, 2025",
     category: "industry"
   },
   {
     id: 7,
-    title: "Audacy Wisconsin Adds Brett Andrews to Programming Leadership",
-    excerpt: "Following a 15-year run with iHeartMedia, Brett Andrews is returning to Audacy Wisconsin as Brand Manager for hot AC Mix 105.1 Madison and Assistant Brand Manager for WXSS and WMYX Milwaukee, while also hosting afternoons.",
-    source: "Radio Ink",
-    date: "July 11, 2025",
+    title: "PBS Expands Grants for Rural Stations",
+    excerpt: "A new initiative from PBS will provide additional funding for smaller rural stations to upgrade equipment and develop local content.",
+    source: "Current",
+    date: "July 10, 2025",
     category: "industry"
   },
   {
     id: 8,
-    title: "ABC News Shifts 'GMA3' Hosting Duties to 'Good Morning America' Team",
-    excerpt: "ABC News has confirmed that DeMarco Morgan and Eva Pilgrim are leaving their roles as co-anchors of 'GMA3: What You Need to Know', marking another change in the network's morning programming lineup.",
-    source: "NewscastStudio",
-    date: "July 7, 2025",
-    category: "industry"
+    title: "Community Broadcasters Raise Funds for Northwest Wildfire Relief",
+    excerpt: "Radio and TV stations across Idaho and Washington joined forces in a day-long fundraiser to support wildfire recovery efforts.",
+    source: "Radio Ink",
+    date: "July 10, 2025",
+    category: "social"
   },
   {
     id: 9,
-    title: "Indiana Public Broadcasters Cut News Team After State Defunding",
-    excerpt: "Indiana's network of public broadcasters is dissolving its entire statewide reporting team following the General Assembly's decision to exclude $3.675 million in annual Indiana Public Broadcasting Stations funding from the state's new two-year budget.",
-    source: "Radio Ink",
-    date: "July 10, 2025",
-    category: "local"
+    title: "Streaming Surge Drives Radio Format Shifts",
+    excerpt: "A recent study shows streaming listening habits are reshaping traditional radio formats as broadcasters adapt to audience preferences.",
+    source: "Inside Radio",
+    date: "July 11, 2025",
+    category: "social"
   },
   {
     id: 10,
-    title: "Spokane Stations Raise $32,400 After Deadly Firefighter Ambush",
-    excerpt: "Morgan Murphy Media's KXLY Radio Group raised $32,400 during a special Honor the Fallen broadcast event and radiothon to support families of firefighters affected by the deadly ambush on Canfield Mountain in Coeur d'Alene, ID.",
-    source: "Radio Ink",
+    title: "Podcast Advertising Boom Spurs New Metrics Initiative",
+    excerpt: "Industry groups are collaborating on a standardized approach to podcast audience measurement amid rapid growth in ad spending.",
+    source: "AdWeek",
     date: "July 10, 2025",
-    category: "local"
+    category: "industry"
   },
   {
     id: 11,
-    title: "WETA Washington Launches WETA+ Free Streaming Service",
-    excerpt: "The Washington D.C. public television station has launched a new free streaming service, expanding its digital presence and providing additional access to public media content for viewers in the region.",
+    title: "Scripps Stations Launch NextGen TV in Phoenix",
+    excerpt: "The rollout brings enhanced picture quality and interactive features to viewers as part of the ATSC 3.0 expansion.",
     source: "TV Tech",
     date: "July 11, 2025",
-    category: "local"
+    category: "industry"
   },
   {
     id: 12,
-    title: "Scripps Raises $75,000 For Central Texas Flood Relief",
-    excerpt: "Scripps television stations have successfully raised $75,000 to support flood relief efforts in Central Texas, demonstrating local broadcasting's role in community emergency response and support.",
-    source: "TVNewsCheck",
-    date: "July 11, 2025",
-    category: "local"
-  },
-  {
-    id: 13,
-    title: "KTIV Announces Retirement of News Anchor Larry Wentz",
-    excerpt: "Long-time news anchor Larry Wentz is retiring from KTIV, marking the end of a significant tenure at the station. The announcement reflects ongoing personnel changes in local television news.",
-    source: "Industry Sources",
-    date: "July 7, 2025",
-    category: "local"
-  },
-  {
-    id: 14,
-    title: "Trump Issues Ultimatum to GOP: Defund NPR or Pay the Price",
-    excerpt: "President Donald Trump has openly threatened any Republican who votes to preserve funding for public broadcasting, making defunding NPR and PBS a key demand as his rescissions package faces challenges in Congress.",
-    source: "Radio Ink",
-    date: "July 11, 2025",
-    category: "social"
-  },
-  {
-    id: 15,
-    title: "Public Radio Funding Fight Could Induce Government Shutdown",
-    excerpt: "As President Trump threatens Senate Republicans to get his rescissions package stripping public broadcasters of $1.1 billion across the finish line, the move could spark a standoff with Congressional Democrats that could shut down the federal government.",
-    source: "Radio Ink",
-    date: "July 10, 2025",
-    category: "social"
-  },
-  {
-    id: 16,
-    title: "Texas Flood Underscores Need for Public Media Funding",
-    excerpt: "A deadly Texas flood underscores the need for public media funding as radio remains a vital lifeline in emergencies, especially in rural areas with poor cell coverage. Senate Democrats warn that proposed CPB cuts could silence stations, jeopardizing critical alerts.",
-    source: "Inside Radio",
-    date: "July 10, 2025",
-    category: "social"
-  },
-  {
-    id: 17,
-    title: "Radio Offers Double ROI, But Marketers Still Missing the Signal",
-    excerpt: "Despite ranking low in perceived effectiveness, radio delivers double the returns on investment, outperforming all other platforms but one. Marketers may be bullish on digital, but data shows they are overlooking one of the strongest assets around.",
-    source: "Radio Ink",
-    date: "July 11, 2025",
-    category: "social"
-  },
-  {
-    id: 18,
-    title: "Katz: As Commutes Rise, Radio's In-Car Advantage Grows Stronger",
-    excerpt: "As more Americans return to the road for work, Katz Media Group says radio's in-car strength is proving essential. A new analysis shows over 70% of employed adults are now commuting, a 29% increase since 2020, creating fresh opportunities for advertisers.",
-    source: "Inside Radio",
-    date: "July 11, 2025",
+    title: "Radio Hall of Fame Announces 2025 Inductees",
+    excerpt: "This year's class includes a mix of legendary talk show hosts and innovators in digital audio.",
+    source: "Radio Hall of Fame",
+    date: "July 9, 2025",
     category: "social"
   }
 ]
