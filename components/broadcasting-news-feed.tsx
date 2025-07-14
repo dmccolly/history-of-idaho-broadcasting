@@ -14,34 +14,74 @@ interface NewsItem {
 const newsData: NewsItem[] = [
   {
     id: 1,
-    title: "FCC Seeks Comments on 39% National TV Ownership Cap",
-    excerpt: "The FCC has set comment dates for updating the record on the 39% national television ownership cap, with comments due August 4 and replies by August 22. The proceeding examines whether the cap should be raised as broadcasters face increased competition from streaming services.",
-    source: "Broadcast Law Blog",
-    date: "July 9, 2025",
-    category: "industry"
+    title: "Boise Radio Station KBOI Launches New Morning Show",
+    excerpt: "KBOI 670 AM announces the debut of 'Idaho Morning Drive' featuring local hosts discussing state politics, weather, and community events...",
+    source: "Idaho Statesman",
+    date: "January 15, 2025",
+    category: "local"
   },
   {
     id: 2,
-    title: "Radio Groups Push for Indefinite Approval of Expanded AM Band Policy",
-    excerpt: "Four radio groups are asking the FCC to keep a rule that allows them to continue operating in the expanded AM band. The request comes as FCC Chair Brendan Carr's push to clear out dormant proceedings has opened the door for broadcasters to secure permanent approval.",
-    source: "Radio World",
-    date: "July 11, 2025",
-    category: "industry"
+    title: "Idaho Public Television Expands Rural Coverage",
+    excerpt: "Idaho Public Television announces new transmitter installations in eastern Idaho, improving signal coverage for rural communities...",
+    source: "Idaho Public Television",
+    date: "January 14, 2025",
+    category: "local"
   },
   {
     id: 3,
-    title: "Broadcasters to FCC: Expand Who Pays Regulatory Fees",
-    excerpt: "Under federal law, the FCC must collect annual regulatory fees from the industries it oversees to fund its operations. Broadcasters are pushing for an expanded base of who pays these fees as the regulatory landscape evolves.",
-    source: "Broadband Breakfast",
-    date: "July 11, 2025",
-    category: "industry"
+    title: "Pocatello TV Station KPVI Celebrates 70 Years",
+    excerpt: "KPVI-DT marks seven decades of serving southeastern Idaho with special programming and community events throughout the month...",
+    source: "East Idaho News",
+    date: "January 13, 2025",
+    category: "local"
   },
   {
     id: 4,
-    title: "Educational FM Rise Hints at Deregulation's Future",
-    excerpt: "With FM educational stations adding 333 new licenses in one year, some see a preview of what radio could look like if ownership limits loosen. The growth suggests potential changes in the regulatory environment.",
-    source: "Radio Ink",
-    date: "July 9, 2025",
+    title: "Twin Falls Broadcasting Group Acquires New FM Frequency",
+    excerpt: "Local broadcasting company secures 101.5 FM license, plans country music format to serve Magic Valley region...",
+    source: "Times-News",
+    date: "January 12, 2025",
+    category: "local"
+  },
+  {
+    id: 5,
+    title: "FCC Seeks Comments on 39% National TV Ownership Cap",
+    excerpt: "The FCC has set comment dates for updating the record on the 39% national television ownership cap, with comments due August 4 and replies by August 22...",
+    source: "Broadcast Law Blog",
+    date: "January 11, 2025",
+    category: "industry"
+  },
+  {
+    id: 6,
+    title: "Coeur d'Alene Radio Stations Partner for Emergency Broadcasting",
+    excerpt: "KVNI and KBBD announce joint emergency alert system to better serve North Idaho during winter weather events...",
+    source: "Coeur d'Alene Press",
+    date: "January 10, 2025",
+    category: "local"
+  },
+  {
+    id: 7,
+    title: "Boise State Public Radio Receives Grant for Rural Outreach",
+    excerpt: "BSU's public radio station awarded $150,000 federal grant to expand programming for rural Idaho communities...",
+    source: "Boise State News",
+    date: "January 9, 2025",
+    category: "local"
+  },
+  {
+    id: 8,
+    title: "Idaho Falls TV Station KIFI Upgrades to 4K Broadcasting",
+    excerpt: "Local ABC affiliate completes major technical upgrade, becoming first eastern Idaho station to broadcast in 4K resolution...",
+    source: "Post Register",
+    date: "January 8, 2025",
+    category: "local"
+  },
+  {
+    id: 9,
+    title: "Radio Groups Push for Expanded AM Band Policy",
+    excerpt: "Four radio groups ask FCC to keep expanded AM band rule as Chair Carr's push opens door for permanent approval...",
+    source: "Radio World",
+    date: "January 7, 2025",
     category: "industry"
   },
   {
@@ -170,12 +210,122 @@ const categoryLabels = {
   social: 'Social'
 }
 
-export default function BroadcastingNewsFeed() {
+export default function BroadcastingNewsFeed({ isCompact = false }: { isCompact?: boolean }) {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
+  const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set())
   
   const filteredNews = selectedCategory === 'all' 
     ? newsData 
     : newsData.filter(item => item.category === selectedCategory)
+
+  const toggleExpanded = (id: number) => {
+    const newExpanded = new Set(expandedItems)
+    if (newExpanded.has(id)) {
+      newExpanded.delete(id)
+    } else {
+      newExpanded.add(id)
+    }
+    setExpandedItems(newExpanded)
+  }
+
+  const truncateText = (text: string, maxLength: number = 80) => {
+    if (text.length <= maxLength) return text
+    return text.substring(0, maxLength) + '...'
+  }
+
+  if (isCompact) {
+    return (
+      <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold text-slate-800 mb-2">News/Social</h3>
+          <p className="text-sm text-slate-600">Latest broadcasting updates from Idaho and beyond</p>
+        </div>
+        
+        {/* Compact category filter */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          <button
+            onClick={() => setSelectedCategory('all')}
+            className={`px-3 py-1 rounded-full text-xs font-medium transition ${
+              selectedCategory === 'all' 
+                ? 'bg-blue-600 text-white' 
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+            }`}
+          >
+            All
+          </button>
+          <button
+            onClick={() => setSelectedCategory('local')}
+            className={`px-3 py-1 rounded-full text-xs font-medium transition ${
+              selectedCategory === 'local' 
+                ? 'bg-green-600 text-white' 
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+            }`}
+          >
+            Idaho
+          </button>
+          <button
+            onClick={() => setSelectedCategory('industry')}
+            className={`px-3 py-1 rounded-full text-xs font-medium transition ${
+              selectedCategory === 'industry' 
+                ? 'bg-blue-600 text-white' 
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+            }`}
+          >
+            Industry
+          </button>
+          <button
+            onClick={() => setSelectedCategory('social')}
+            className={`px-3 py-1 rounded-full text-xs font-medium transition ${
+              selectedCategory === 'social' 
+                ? 'bg-purple-600 text-white' 
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+            }`}
+          >
+            Social
+          </button>
+        </div>
+
+        {/* Compact news list */}
+        <div className="space-y-4 max-h-96 overflow-y-auto">
+          {filteredNews.slice(0, 15).map((item) => {
+            const isExpanded = expandedItems.has(item.id)
+            return (
+              <article key={item.id} className="border-b border-slate-100 pb-4 last:border-b-0">
+                <div className="flex items-start justify-between mb-2">
+                  <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${categoryColors[item.category]}`}>
+                    {item.category === 'local' ? 'Idaho' : categoryLabels[item.category]}
+                  </span>
+                  <span className="text-xs text-slate-500">{new Date(item.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                </div>
+                <h4 className="font-medium text-slate-800 text-sm mb-2 leading-tight">
+                  {item.title}
+                </h4>
+                <p className="text-xs text-slate-600 mb-2">
+                  {isExpanded ? item.excerpt : truncateText(item.excerpt)}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-slate-500">{item.source}</span>
+                  <button
+                    onClick={() => toggleExpanded(item.id)}
+                    className="text-xs text-blue-600 hover:text-blue-800 font-medium"
+                  >
+                    {isExpanded ? 'Read Less' : 'Read More'}
+                  </button>
+                </div>
+              </article>
+            )
+          })}
+        </div>
+
+        {/* Compact last updated info */}
+        <div className="mt-4 pt-4 border-t border-slate-200">
+          <p className="text-xs text-slate-500 text-center">
+            {selectedCategory === 'social' ? 'Updates daily' : selectedCategory === 'all' ? 'News updates every 4 hours • Social updates daily' : 'Updates every 4 hours'} • Last: {new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <section className="relative">
@@ -184,8 +334,8 @@ export default function BroadcastingNewsFeed() {
           
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 font-playfair-display text-slate-800">Broadcasting News & Updates</h2>
-            <p className="text-xl text-slate-500">Stay informed with the latest broadcasting industry news, local station updates, and social developments affecting the industry.</p>
+            <h2 className="h2 font-playfair-display text-slate-800">Broadcasting News & Social</h2>
+            <p className="text-xl text-slate-500">Stay informed with the latest broadcasting industry news, with special focus on Idaho and Boise area stations, plus social developments affecting the industry.</p>
           </div>
 
           {/* Category filter */}
@@ -266,7 +416,7 @@ export default function BroadcastingNewsFeed() {
                 day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit'
-              })} • Updates every 4 hours
+              })} • {selectedCategory === 'social' ? 'Updates daily' : selectedCategory === 'all' ? 'News updates every 4 hours • Social updates daily' : 'Updates every 4 hours'}
             </p>
           </div>
 
