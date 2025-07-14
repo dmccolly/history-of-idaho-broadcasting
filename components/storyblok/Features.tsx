@@ -3,7 +3,7 @@
 import { storyblokEditable, StoryblokComponent } from '@/lib/storyblok'
 import { SbBlokData } from '@storyblok/react'
 
-interface FeaturesStoryblok {
+interface FeaturesStoryblok extends SbBlokData {
   title?: string
   subtitle?: string
   features_list?: SbBlokData[]
