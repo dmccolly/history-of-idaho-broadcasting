@@ -1,21 +1,25 @@
 import { storyblokEditable } from '@/lib/storyblok'
+import { SbBlokData } from '@storyblok/react'
 // import { render } from '@storyblok/richtext'
 import Image from 'next/image'
 
-interface BlogPostProps {
-  blok: {
-    title: string
-    content: any
-    featured_image?: {
-      filename: string
-      alt: string
-    }
-    excerpt?: string
-    author?: string
-    published_date?: string
-    tags?: string[]
-    _uid: string
+interface BlogPostStoryblok extends SbBlokData {
+  title: string
+  content: any
+  featured_image?: {
+    filename: string
+    alt: string
   }
+  excerpt?: string
+  author?: string
+  published_date?: string
+  tags?: string[]
+  _uid: string
+  component: 'blog_post'
+}
+
+interface BlogPostProps {
+  blok: BlogPostStoryblok
 }
 
 export default function BlogPost({ blok }: BlogPostProps) {

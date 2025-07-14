@@ -1,6 +1,7 @@
 'use client'
 
 import { storyblokEditable, StoryblokComponent } from '@/lib/storyblok'
+import { SbBlokData } from '@storyblok/react'
 import Link from 'next/link'
 
 interface NavigationItem {
@@ -11,7 +12,7 @@ interface NavigationItem {
   target?: string
 }
 
-interface NavigationStoryblok {
+interface NavigationStoryblok extends SbBlokData {
   _uid: string
   component: 'navigation'
   menu_items: NavigationItem[]

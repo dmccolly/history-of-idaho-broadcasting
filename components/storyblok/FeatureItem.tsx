@@ -1,10 +1,11 @@
 'use client'
 
 import { storyblokEditable } from '@/lib/storyblok'
+import { SbBlokData } from '@storyblok/react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-interface FeatureItemStoryblok {
+interface FeatureItemStoryblok extends SbBlokData {
   title: string
   description?: string
   icon?: {
