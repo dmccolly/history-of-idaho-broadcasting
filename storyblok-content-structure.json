@@ -1,0 +1,135 @@
+{
+  "contentTypes": [
+    {
+      "name": "page",
+      "description": "Main page content type",
+      "fields": [
+        "title (Text, Required)",
+        "slug (Text, Required)",
+        "meta_description (Text)",
+        "hero_section (Blocks, Allow: hero)",
+        "content_sections (Blocks, Allow: content_section, features, cta)",
+        "seo_title (Text)"
+      ]
+    },
+    {
+      "name": "hero",
+      "description": "Hero section component",
+      "fields": [
+        "headline (Text, Required)",
+        "subheadline (Textarea)",
+        "description (Textarea)",
+        "primary_button_text (Text)",
+        "primary_button_link (Link)",
+        "secondary_button_text (Text)",
+        "secondary_button_link (Link)",
+        "background_image (Asset)",
+        "layout_style (Option: default, centered, split)"
+      ]
+    },
+    {
+      "name": "content_section",
+      "description": "Flexible content section",
+      "fields": [
+        "title (Text)",
+        "content (Richtext)",
+        "layout (Option: single_column, two_column, three_column)",
+        "background_color (Option: white, gray, dark)",
+        "image (Asset)",
+        "image_position (Option: left, right, top, bottom)"
+      ]
+    },
+    {
+      "name": "features",
+      "description": "Features section",
+      "fields": [
+        "title (Text)",
+        "subtitle (Text)",
+        "features_list (Blocks, Allow: feature_item)",
+        "layout (Option: grid, list, cards)"
+      ]
+    },
+    {
+      "name": "feature_item",
+      "description": "Individual feature item",
+      "fields": [
+        "title (Text, Required)",
+        "description (Textarea)",
+        "icon (Asset)",
+        "link (Link)"
+      ]
+    },
+    {
+      "name": "cta",
+      "description": "Call to action section",
+      "fields": [
+        "title (Text, Required)",
+        "description (Textarea)",
+        "button_text (Text)",
+        "button_link (Link)",
+        "background_color (Option: primary, secondary, dark)",
+        "layout (Option: centered, split)"
+      ]
+    },
+    {
+      "name": "navigation",
+      "description": "Site navigation",
+      "fields": [
+        "items (Blocks, Allow: navigation_item)"
+      ]
+    },
+    {
+      "name": "navigation_item",
+      "description": "Navigation menu item",
+      "fields": [
+        "label (Text, Required)",
+        "href (Text, Required)",
+        "children (Blocks, Allow: navigation_item)"
+      ]
+    }
+  ],
+  "sampleContent": {
+    "home": {
+      "component": "page",
+      "title": "Welcome to History of Idaho Broadcasting",
+      "slug": "home",
+      "meta_description": "Discover the rich history of broadcasting in Idaho",
+      "seo_title": "History of Idaho Broadcasting - Home"
+    },
+    "about": {
+      "component": "page",
+      "title": "About Us",
+      "slug": "about",
+      "meta_description": "Learn about the History of Idaho Broadcasting Foundation"
+    },
+    "navigation": {
+      "component": "navigation",
+      "items": [
+        {
+          "label": "Home",
+          "href": "/"
+        },
+        {
+          "label": "About",
+          "href": "/about"
+        },
+        {
+          "label": "Events",
+          "href": "/events"
+        },
+        {
+          "label": "Blog",
+          "href": "/blog"
+        }
+      ]
+    }
+  },
+  "instructions": {
+    "step1": "Go to https://app.storyblok.com",
+    "step2": "Navigate to Block Library",
+    "step3": "Create each content type listed above with the specified fields",
+    "step4": "Go to Content section",
+    "step5": "Create stories using the sample content structure",
+    "step6": "Enable Visual Editor with preview URL: http://localhost:3001"
+  }
+}

@@ -1,6 +1,6 @@
 'use client'
 
-import { storyblokEditable } from '@storyblok/react/rsc'
+import { storyblokEditable } from '@/lib/storyblok'
 import Link from 'next/link'
 import Image from 'next/image'
 

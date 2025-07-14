@@ -71,37 +71,38 @@ export default function VoxProPlayer({ className = '' }: VoxProPlayerProps) {
   }
 
   return (
-    <div className={`bg-gray-900 rounded-lg p-6 text-white ${className}`}>
+    <div className={`bg-slate-800 rounded-2xl border border-slate-600 p-8 text-white ${className}`}>
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-8">
         <div>
-          <h3 className="text-xl font-bold text-green-400">VoxPro Media Player</h3>
-          <p className="text-sm text-gray-400">Professional Broadcasting Control</p>
+          <h3 className="text-2xl font-bold text-white mb-2">VoxPro Media Player</h3>
+          <p className="text-slate-300">Professional Broadcasting Control</p>
         </div>
-        <div className="flex items-center space-x-2">
-          <div className={`w-3 h-3 rounded-full ${isConnected ? 'bg-green-500' : 'bg-yellow-500'}`}></div>
-          <span className="text-sm">
-            {isConnected ? 'Connected to Supabase' : 'Demo Mode'}
+        <div className="flex items-center space-x-3">
+          <div className={`w-4 h-4 rounded-full ${isConnected ? 'bg-green-500 animate-pulse' : 'bg-yellow-500'}`}></div>
+          <span className="text-sm text-slate-300 font-medium">
+            {isConnected ? 'Live Connection' : 'Demo Mode'}
           </span>
         </div>
       </div>
 
       {/* Key Buttons */}
-      <div className="grid grid-cols-5 gap-3 mb-6">
+      <div className="grid grid-cols-5 gap-4 mb-8">
         {[1, 2, 3, 4, 5].map((keyNumber) => (
           <button
             key={keyNumber}
             onClick={() => handleKeyClick(keyNumber)}
             className={`
               ${getKeyColor(keyNumber)}
-              ${selectedKey === keyNumber ? 'ring-2 ring-white' : ''}
-              text-white font-bold py-4 px-2 rounded-lg transition-all duration-200
-              flex flex-col items-center justify-center min-h-[80px]
+              ${selectedKey === keyNumber ? 'ring-4 ring-white ring-opacity-50 scale-105' : 'hover:scale-105'}
+              text-white font-bold py-6 px-3 rounded-xl transition-all duration-300
+              flex flex-col items-center justify-center min-h-[100px]
+              shadow-lg hover:shadow-xl
             `}
           >
-            <span className="text-2xl mb-1">{keyNumber}</span>
-            <span className="text-xs opacity-75">
-              {keyNumber < 10 ? `0${keyNumber}` : keyNumber}
+            <span className="text-3xl mb-2 font-extrabold">{keyNumber}</span>
+            <span className="text-xs opacity-80 font-medium">
+              KEY {keyNumber < 10 ? `0${keyNumber}` : keyNumber}
             </span>
           </button>
         ))}
@@ -109,33 +110,35 @@ export default function VoxProPlayer({ className = '' }: VoxProPlayerProps) {
 
       {/* Current Selection Display */}
       {currentFile && (
-        <div className="bg-gray-800 rounded-lg p-4 mb-4">
+        <div className="bg-slate-700 rounded-xl border border-slate-600 p-6 mb-6">
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <div className="flex items-center space-x-2 mb-2">
-                {getFileIcon(currentFile.file_type)}
-                <h4 className="font-semibold text-green-400">Key {currentFile.key_assignment}</h4>
-                <span className="text-xs bg-gray-700 px-2 py-1 rounded">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="p-2 bg-slate-600 rounded-lg">
+                  {getFileIcon(currentFile.file_type)}
+                </div>
+                <h4 className="font-bold text-white text-lg">Key {currentFile.key_assignment}</h4>
+                <span className="text-xs bg-slate-600 text-slate-200 px-3 py-1 rounded-full font-medium">
                   {currentFile.file_type}
                 </span>
               </div>
-              <h5 className="font-medium mb-1">{currentFile.title}</h5>
-              <p className="text-sm text-gray-400 mb-2">{currentFile.description}</p>
-              <p className="text-xs text-gray-500">
+              <h5 className="font-semibold text-white mb-2 text-lg">{currentFile.title}</h5>
+              <p className="text-slate-300 mb-3 leading-relaxed">{currentFile.description}</p>
+              <p className="text-sm text-slate-400">
                 By {currentFile.author} • {currentFile.date}
               </p>
             </div>
-            <div className="flex space-x-2 ml-4">
+            <div className="flex space-x-3 ml-6">
               {currentFile.file_type.includes('audio') || currentFile.file_type.includes('video') ? (
                 <button
                   onClick={togglePlayback}
-                  className="bg-green-600 hover:bg-green-700 p-2 rounded-lg transition-colors"
+                  className="bg-green-600 hover:bg-green-700 p-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg"
                 >
-                  {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                  {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
                 </button>
               ) : null}
-              <button className="bg-blue-600 hover:bg-blue-700 p-2 rounded-lg transition-colors">
-                <Download className="w-4 h-4" />
+              <button className="bg-blue-600 hover:bg-blue-700 p-3 rounded-xl transition-all duration-200 hover:scale-105 shadow-lg">
+                <Download className="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -144,22 +147,28 @@ export default function VoxProPlayer({ className = '' }: VoxProPlayerProps) {
 
       {/* Media Player Controls */}
       {currentFile && (currentFile.file_type.includes('audio') || currentFile.file_type.includes('video')) && (
-        <div className="bg-gray-800 rounded-lg p-4">
-          <div className="flex items-center space-x-4">
+        <div className="bg-slate-700 rounded-xl border border-slate-600 p-6">
+          <div className="flex items-center space-x-6">
             <button
               onClick={togglePlayback}
-              className="bg-green-600 hover:bg-green-700 p-3 rounded-full transition-colors"
+              className="bg-green-600 hover:bg-green-700 p-4 rounded-full transition-all duration-200 hover:scale-110 shadow-lg"
             >
-              {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+              {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
             </button>
             <div className="flex-1">
-              <div className="bg-gray-700 rounded-full h-2">
-                <div className="bg-green-500 h-2 rounded-full w-1/3"></div>
+              <div className="bg-slate-600 rounded-full h-3 overflow-hidden">
+                <div className="bg-gradient-to-r from-green-500 to-green-400 h-3 rounded-full w-1/3 transition-all duration-300"></div>
+              </div>
+              <div className="flex justify-between text-xs text-slate-400 mt-2">
+                <span>1:23</span>
+                <span>3:45</span>
               </div>
             </div>
-            <Volume2 className="w-5 h-5 text-gray-400" />
-            <div className="bg-gray-700 rounded-full h-2 w-20">
-              <div className="bg-white h-2 rounded-full w-3/4"></div>
+            <div className="flex items-center space-x-3">
+              <Volume2 className="w-5 h-5 text-slate-300" />
+              <div className="bg-slate-600 rounded-full h-2 w-24">
+                <div className="bg-white h-2 rounded-full w-3/4"></div>
+              </div>
             </div>
           </div>
         </div>

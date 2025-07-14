@@ -1,4 +1,4 @@
-import { getStoryblokApi } from '@storyblok/react/rsc'
+import { getStoryblokApi } from '@/lib/storyblok'
 import BlogListing from '../../../components/storyblok/BlogListing'
 import '../../../lib/storyblok'
 

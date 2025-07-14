@@ -1,4 +1,4 @@
-import { getStoryblokApi, StoryblokServerComponent } from '@storyblok/react/rsc'
+import { getStoryblokApi, StoryblokServerComponent } from '@/lib/storyblok'
 import { notFound } from 'next/navigation'
 import '../../../../lib/storyblok'
 

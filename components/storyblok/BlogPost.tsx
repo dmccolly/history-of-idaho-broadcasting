@@ -1,4 +1,5 @@
-import { storyblokEditable, renderRichText } from '@storyblok/react/rsc'
+import { storyblokEditable } from '@/lib/storyblok'
+// import { render } from '@storyblok/richtext'
 import Image from 'next/image'
 
 interface BlogPostProps {
@@ -57,8 +58,30 @@ export default function BlogPost({ blok }: BlogPostProps) {
 
       {/* Content */}
       <div className="prose prose-lg max-w-none">
-              {renderRichText(blok.content)}
-            </div>
+        {(() => {
+          if (!blok.content) return null
+          
+          // Simple fallback for rich text content
+          if (typeof blok.content === 'string') {
+            return <div dangerouslySetInnerHTML={{ __html: blok.content }} />
+          }
+          
+          // If content is an object, try to extract text
+          if (blok.content && blok.content.content) {
+            const textContent = blok.content.content.map((item: any) => {
+              if (item.type === 'paragraph' && item.content) {
+                return item.content.map((text: any) => text.text || '').join('')
+              }
+              return ''
+            }).join('\n')
+            
+            return <p>{textContent}</p>
+          }
+          
+          return <p>{JSON.stringify(blok.content)}</p>
+        })()
+        }
+      </div>
 
       {/* Tags */}
       {blok.tags && blok.tags.length > 0 && (
