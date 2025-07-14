@@ -1,9 +1,10 @@
 'use client'
 
 import { storyblokEditable } from '@/lib/storyblok'
+import { SbBlokData } from '@storyblok/react'
 import Link from 'next/link'
 
-interface CTAStoryblok {
+interface CTAStoryblok extends SbBlokData {
   title: string
   description?: string
   button_text?: string
