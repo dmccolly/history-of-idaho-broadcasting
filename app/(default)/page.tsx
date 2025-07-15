@@ -9,7 +9,7 @@ import KeyAssignments from "../../components/broadcasting/key-assignments";
 export default function HomePage() {
   return (
     <DefaultLayout>
-      <main>
+      <main className="container mx-auto px-4">
         <HeroHome />
         <FeaturesHome />
         <section className="professional-broadcasting-tools">
@@ -17,9 +17,8 @@ export default function HomePage() {
           <VoxProPlayer />
           <KeyAssignments />
         </section>
-        
       </main>
     </DefaultLayout>
-  );
+  )
 }
 

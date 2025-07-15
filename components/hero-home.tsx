@@ -10,14 +10,14 @@ export default function HeroHome() {
       <div className="absolute inset-0 bg-slate-900 pointer-events-none -z-10 [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]" aria-hidden="true"></div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="pt-32 pb-20 md:pt-40 md:pb-44">
+        <div className="pt-[116px] pb-20 md:pt-[120px] md:pb-44">
 
           {/* Hero content */}
           <div className="max-w-xl mx-auto md:max-w-none md:flex md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-16 md:space-y-0">
 
             {/* Content */}
             <div className="text-center md:text-left md:min-w-[30rem]" data-aos="fade-right">
-              <h1 className="h1 font-playfair-display text-slate-100 mb-4">Welcome to Idaho Broadcasting Foundation</h1>
+              <h1 className="h1 font-playfair-display text-slate-100 mb-4">History of Idaho Broadcasting</h1>
               <p className="text-xl text-slate-400 mb-8">Supporting broadcasting excellence across Idaho through education, resources, and community engagement. Access professional tools, join industry events, and connect with fellow broadcasting professionals.</p>
               <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                 <div>

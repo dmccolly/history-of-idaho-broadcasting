@@ -8,6 +8,8 @@ import dynamic from 'next/dynamic'
 const Header = dynamic(() => import('@/components/ui/header'), { ssr: false })
 const Footer = dynamic(() => import('@/components/ui/footer'), { ssr: false })
 
+import "..\/globals.css";
+
 export default function DefaultLayout({
   children,
 }: {

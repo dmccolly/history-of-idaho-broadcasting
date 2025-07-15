@@ -37,7 +37,7 @@ export default async function Header({ mode = 'dark' }: {
         <div className="flex items-center justify-between h-16 md:h-20">
 
           {/* Site branding */}
-          <div className="shrink-0 mr-4">
+          <div className="shrink-0 mr-4 bg-black bg-opacity-50 p-1 rounded">
             <Logo />
           </div>
 
