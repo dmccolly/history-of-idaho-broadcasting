@@ -3,7 +3,7 @@ export const metadata = {
   description: 'Multimedia gallery of Idaho broadcasting history',
 }
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 
 export default function GalleryPage() {
   return (
