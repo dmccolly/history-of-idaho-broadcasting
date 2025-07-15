@@ -1,14 +1,28 @@
-import Header from '@/components/ui/header'
+"use client"
+
+import { useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
+import HeaderClient from '@/components/ui/header-client'
 import FooterClient from '@/components/ui/footer-client'
 
-export default async function AuthLayout({
+export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      disable: 'phone',
+      duration: 600,
+      easing: 'ease-out-sine',
+    })
+  })
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-      <Header mode="light" />
+      <HeaderClient />
       <main className="grow flex">{children}</main>
       <FooterClient />
     </div>
