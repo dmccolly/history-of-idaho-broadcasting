@@ -381,7 +381,62 @@ const stories = [
   }
 ];
 
+const StoryblokClient = require('storyblok-js-client');
+
 class StoryblokSetup {
+  constructor() {
+    this.storyblok = new StoryblokClient({
+      accessToken: process.env.STORYBLOK_ACCESS_TOKEN
+    });
+  }
+
+  async createOrUpdateNavigation() {
+    const navigationData = {
+      name: "Navigation",
+      slug: "navigation",
+      content: {
+        component: "navigation",
+        menu_items: [
+          { component: "navigation_item", label: "Home", href: "/" },
+          { component: "navigation_item", label: "News", href: "/news" },
+          { component: "navigation_item", label: "Events", href: "/events" },
+          { component: "navigation_item", label: "Back Corner", href: "/back-corner" },
+          { component: "navigation_item", label: "Gallery", href: "/gallery" },
+          { component: "navigation_item", label: "History", href: "/history" }
+        ]
+      },
+      published: true
+    };
+
+    try {
+      // Check if navigation story exists
+      const existing = await this.storyblok.get('cdn/stories/navigation');
+      if (existing && existing.data && existing.data.story) {
+        // Update existing story
+        await this.storyblok.put(`stories/${existing.data.story.id}`, { story: navigationData });
+      } else {
+        // Create new story
+        await this.storyblok.post('stories', { story: navigationData });
+      }
+      console.log('Navigation story created or updated successfully.');
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        // Story does not exist, create it
+        await this.storyblok.post('stories', { story: navigationData });
+        console.log('Navigation story created successfully.');
+      } else {
+        console.error('Error creating or updating navigation story:', error);
+      }
+    }
+  }
+}
+
+(async () => {
+  const setup = new StoryblokSetup();
+  await setup.createOrUpdateNavigation();
+})();
+
+// ... existing code ...
   constructor(managementToken, spaceId) {
     this.managementToken = managementToken;
     this.spaceId = spaceId;

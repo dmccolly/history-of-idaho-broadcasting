@@ -4,8 +4,9 @@ import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-import HeaderClient from '@/components/ui/header-client'
-import FooterClient from '@/components/ui/footer-client'
+import dynamic from 'next/dynamic'
+const Header = dynamic(() => import('@/components/ui/header'), { ssr: false })
+const Footer = dynamic(() => import('@/components/ui/footer'), { ssr: false })
 
 export default function DefaultLayout({
   children,
@@ -24,11 +25,11 @@ export default function DefaultLayout({
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-      <HeaderClient />
+      <Header />
       <main className="grow">
         {children}
       </main>
-      <FooterClient />
+      <Footer />
     </div>
   )
 }

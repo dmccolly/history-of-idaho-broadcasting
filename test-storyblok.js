@@ -1,11 +1,11 @@
 // Simple test to verify Storyblok credentials
 const https = require('https');
 
-const managementToken = process.argv[2] || 'Bqgr264QJbWfKjOm4SJPTQtt-68649079626549-Bcpx4TsApnvBRVNiiw6i';
-const spaceId = process.argv[3] || '123456';
+const managementToken = process.argv[2] || process.env.STORYBLOK_ACCESS_TOKEN;
+const spaceId = process.argv[3] || process.env.STORYBLOK_SPACE_ID;
 
 console.log('Testing Storyblok credentials...');
-console.log(`Token: ${managementToken.substring(0, 8)}...`);
+console.log(`Token: ${managementToken ? managementToken.substring(0, 8) : 'undefined'}...`);
 console.log(`Space ID: ${spaceId}`);
 
 const options = {
@@ -43,3 +43,5 @@ req.on('error', (error) => {
 });
 
 req.end();
+
+// This change ensures the script uses the .env values if no CLI args are provided

@@ -1,6 +1,7 @@
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import Header from '@/components/ui/header'
-import Footer from '@/components/ui/footer'
+const Header = dynamic(() => import('@/components/ui/header'), { ssr: false })
+const Footer = dynamic(() => import('@/components/ui/footer'), { ssr: false })
 
 export default function NotFound() {
   return (
