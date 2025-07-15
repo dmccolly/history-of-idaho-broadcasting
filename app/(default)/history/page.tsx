@@ -1,5 +1,7 @@
 import { getStoryblokApi, StoryblokComponent } from '@/lib/storyblok'
 import '../../../lib/storyblok'
+import HistorySection from '@/components/storyblok/HistorySection'
+import { fallbackHistorySection } from '@/lib/data/history-fallback'
 
 export const metadata = {
   title: 'Broadcast History - Idaho Broadcasting Foundation',
@@ -9,8 +11,8 @@ export const metadata = {
 export default async function HistoryPage() {
   if (!process.env.STORYBLOK_ACCESS_TOKEN) {
     return (
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        <p>Storyblok access token not configured.</p>
+      <div className="min-h-screen bg-white">
+        <HistorySection blok={fallbackHistorySection} />
       </div>
     )
   }
@@ -21,8 +23,8 @@ export default async function HistoryPage() {
     const story = data?.story
     if (!story) {
       return (
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <p>History page not found.</p>
+        <div className="min-h-screen bg-white">
+          <HistorySection blok={fallbackHistorySection} />
         </div>
       )
     }
@@ -35,8 +37,8 @@ export default async function HistoryPage() {
   } catch (error) {
     console.error('Error loading history page:', error)
     return (
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        <p>Error loading history content.</p>
+      <div className="min-h-screen bg-white">
+        <HistorySection blok={fallbackHistorySection} />
       </div>
     )
   }
