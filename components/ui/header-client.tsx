@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
+import { navItems } from '@/lib/navItems'
 
 export default function HeaderClient() {
   const [top, setTop] = useState<boolean>(true)
@@ -19,15 +20,6 @@ export default function HeaderClient() {
     return () => window.removeEventListener('scroll', scrollHandler)
   }, [])
 
-  // Default navigation items (fallback)
-  const defaultNavItems = [
-    { name: 'Home', href: '/' },
-    { name: 'History', href: '/history' },
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'News', href: '/news' },
-    { name: 'Events', href: '/events' },
-    { name: 'Back Corner', href: '/back-corner' },
-  ]
 
   return (
     <header className={`fixed w-full z-30 transition duration-300 ease-in-out ${!top ? 'bg-white backdrop-blur-sm shadow-lg' : ''}`}>
@@ -43,7 +35,7 @@ export default function HeaderClient() {
           <nav className="hidden md:flex md:grow">
             {/* Desktop menu links */}
             <ul className="flex grow justify-end flex-wrap items-center">
-              {defaultNavItems.map((item, index) => (
+              {navItems.map((item, index) => (
                 <li key={index}>
                   <Link
                     href={item.href}
