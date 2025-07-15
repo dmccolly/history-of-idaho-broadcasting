@@ -4,6 +4,7 @@ import { storyblokEditable } from '@/lib/storyblok'
 import Image from 'next/image'
 import { useState } from 'react'
 import type { SbBlokData } from '@storyblok/react'
+import { renderRichText } from '@storyblok/react'
 
 export interface StationCardStoryblok extends SbBlokData {
   title: string
@@ -63,9 +64,9 @@ export default function StationCard({ blok }: StationCardProps) {
         />
       )}
       <h3 className="text-xl font-semibold text-gray-900 mb-3">{blok.title}</h3>
-      <p className="text-gray-700 mb-4 whitespace-pre-line">
-        {expanded ? plainText : truncated}
-      </p>
+      <div className="text-gray-700 mb-4 whitespace-pre-line">
+        {expanded ? renderRichText(blok.content) : <p>{truncated}</p>}
+      </div>
       {plainText.split(/\s+/).length > 100 && (
         <button
           onClick={() => setExpanded(!expanded)}
