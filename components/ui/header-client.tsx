@@ -22,9 +22,10 @@ export default function HeaderClient() {
   // Default navigation items (fallback)
   const defaultNavItems = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Events', href: '/events' },
+    { name: 'History', href: '/history' },
+    { name: 'Gallery', href: '/gallery' },
     { name: 'News', href: '/news' },
+    { name: 'Events', href: '/events' },
     { name: 'Back Corner', href: '/back-corner' },
   ]
 
@@ -46,7 +47,7 @@ export default function HeaderClient() {
                 <li key={index}>
                   <Link
                     href={item.href}
-                    className="text-slate-600 hover:text-slate-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+                    className={`${top ? 'text-white hover:text-slate-200' : 'text-slate-600 hover:text-slate-900'} px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out`}
                   >
                     {item.name}
                   </Link>

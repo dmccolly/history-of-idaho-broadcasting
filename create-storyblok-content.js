@@ -402,17 +402,7 @@ const stories = [
         {
           component: 'navigation_item',
           label: 'Home',
-          href: '/'
-        },
-        {
-          component: 'navigation_item',
-          label: 'About',
-          href: '/about'
-        },
-        {
-          component: 'navigation_item',
-          label: 'Events',
-          href: '/events'
+          href: '/' 
         },
         {
           component: 'navigation_item',
@@ -421,8 +411,23 @@ const stories = [
         },
         {
           component: 'navigation_item',
-          label: 'Blog',
-          href: '/blog'
+          label: 'Gallery',
+          href: '/gallery'
+        },
+        {
+          component: 'navigation_item',
+          label: 'News',
+          href: '/news'
+        },
+        {
+          component: 'navigation_item',
+          label: 'Events',
+          href: '/events'
+        },
+        {
+          component: 'navigation_item',
+          label: 'Back Corner',
+          href: '/back-corner'
         }
       ]
     }
