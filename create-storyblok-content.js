@@ -416,6 +416,11 @@ const stories = [
         },
         {
           component: 'navigation_item',
+          label: 'History',
+          href: '/history'
+        },
+        {
+          component: 'navigation_item',
           label: 'Blog',
           href: '/blog'
         }

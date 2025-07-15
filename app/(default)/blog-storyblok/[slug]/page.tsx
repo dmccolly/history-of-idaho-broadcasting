@@ -1,4 +1,4 @@
-import { getStoryblokApi, StoryblokServerComponent } from '@/lib/storyblok'
+import { getStoryblokApi, StoryblokComponent } from '@/lib/storyblok'
 import { notFound } from 'next/navigation'
 import '../../../../lib/storyblok'
 
@@ -22,7 +22,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
     return (
       <div className="min-h-screen bg-white">
-        <StoryblokServerComponent blok={data.story.content} />
+        <StoryblokComponent blok={data.story.content} />
       </div>
     )
   } catch (error) {
