@@ -9,6 +9,8 @@ import ContentSection from '@/components/storyblok/ContentSection'
 import Features from '@/components/storyblok/Features'
 import FeatureItem from '@/components/storyblok/FeatureItem'
 import CTA from '@/components/storyblok/CTA'
+import StationCard from '@/components/storyblok/StationCard'
+import HistorySection from '@/components/storyblok/HistorySection'
 
 storyblokInit({
   accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
@@ -24,6 +26,8 @@ storyblokInit({
     'features': Features,
     'feature_item': FeatureItem,
     'cta': CTA,
+    'station_card': StationCard,
+    'history_section': HistorySection,
   },
 })
 

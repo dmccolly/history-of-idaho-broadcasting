@@ -243,6 +243,28 @@ const contentTypes = [
     }
   },
   {
+    name: 'station_card',
+    display_name: 'Station Card',
+    schema: {
+      title: { type: 'text', display_name: 'Title', required: true },
+      content: { type: 'richtext', display_name: 'Content' },
+      image: { type: 'asset', display_name: 'Image' }
+    }
+  },
+  {
+    name: 'history_section',
+    display_name: 'History Section',
+    schema: {
+      content: { type: 'richtext', display_name: 'Content' },
+      station_cards: {
+        type: 'bloks',
+        restrict_components: true,
+        component_whitelist: ['station_card'],
+        display_name: 'Station Cards'
+      }
+    }
+  },
+  {
     name: 'navigation',
     display_name: 'Navigation',
     schema: {
@@ -348,6 +370,27 @@ const stories = [
         layout: 'single_column',
         background_color: 'white'
       }]
+    }
+  },
+  {
+    name: "history",
+    slug: "history",
+    content: {
+      component: "page",
+      title: "Broadcast History",
+      slug: "history",
+      meta_description: "Historical overview of Idaho radio stations",
+      seo_title: "Idaho Broadcasting History",
+      content_sections: [
+        {
+          component: "history_section",
+          content: {
+            type: "doc",
+            content: [{ type: "paragraph", content: [{ type: "text", text: "Historical notes go here." }] }]
+          },
+          station_cards: []
+        }
+      ]
     }
   },
   {
