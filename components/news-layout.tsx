@@ -77,13 +77,13 @@ function CompactNewsFeed() {
     }
   ]
 
-  const categoryColors = {
+  const categoryColors: Record<string, string> = {
     industry: 'bg-blue-100 text-blue-800',
     local: 'bg-green-100 text-green-800',
     social: 'bg-purple-100 text-purple-800'
   }
 
-  const categoryLabels = {
+  const categoryLabels: Record<string, string> = {
     industry: 'Industry',
     local: 'Local',
     social: 'Social'

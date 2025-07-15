@@ -3,6 +3,7 @@
 import { storyblokEditable } from '@/lib/storyblok'
 import Link from 'next/link'
 import Image from 'next/image'
+import type { SbBlokData } from '@storyblok/react'
 
 interface BlogPost {
   uuid: string
@@ -25,7 +26,7 @@ interface BlogListingProps {
     title?: string
     description?: string
     _uid: string
-  }
+  } & SbBlokData
   posts: BlogPost[]
 }
 

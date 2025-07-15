@@ -1,10 +1,11 @@
 'use client'
 
 import { storyblokEditable } from '@/lib/storyblok'
+import type { SbBlokData } from '@storyblok/react'
 // import { render } from '@storyblok/richtext'
 import Image from 'next/image'
 
-interface ContentSectionStoryblok {
+interface ContentSectionStoryblok extends SbBlokData {
   title?: string
   content?: any // Richtext content
   layout?: 'single_column' | 'two_column' | 'three_column'

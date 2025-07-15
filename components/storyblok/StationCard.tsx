@@ -3,8 +3,9 @@
 import { storyblokEditable } from '@/lib/storyblok'
 import Image from 'next/image'
 import { useState } from 'react'
+import type { SbBlokData } from '@storyblok/react'
 
-export interface StationCardStoryblok {
+export interface StationCardStoryblok extends SbBlokData {
   title: string
   content: any
   image?: {

@@ -3,7 +3,7 @@
 import { storyblokEditable, StoryblokComponent } from '@/lib/storyblok'
 import type { SbBlokData } from '@storyblok/react'
 
-export interface HistorySectionStoryblok {
+export interface HistorySectionStoryblok extends SbBlokData {
   content: any
   station_cards: SbBlokData[]
   _uid: string

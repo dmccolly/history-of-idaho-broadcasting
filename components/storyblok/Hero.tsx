@@ -3,8 +3,9 @@
 import { storyblokEditable } from '@/lib/storyblok'
 import Link from 'next/link'
 import Image from 'next/image'
+import type { SbBlokData } from '@storyblok/react'
 
-interface HeroStoryblok {
+interface HeroStoryblok extends SbBlokData {
   headline: string
   subheadline?: string
   description?: string
