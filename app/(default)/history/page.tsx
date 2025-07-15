@@ -3,6 +3,8 @@ import '../../../lib/storyblok'
 import HistorySection from '@/components/storyblok/HistorySection'
 import { fallbackHistorySection } from '@/lib/data/history-fallback'
 
+export const dynamic = 'force-static'
+
 export const metadata = {
   title: 'Broadcast History - Idaho Broadcasting Foundation',
   description: 'Discover the history of Idaho\'s radio stations',

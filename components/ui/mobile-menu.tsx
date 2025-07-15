@@ -37,7 +37,7 @@ export default function MobileMenu() {
       {/* Hamburger button */}
       <button
         ref={trigger}
-        className={`group inline-flex w-8 h-8 text-slate-300 hover:text-white text-center items-center justify-center transition`}
+        className="group inline-flex w-8 h-8 text-slate-700 hover:text-slate-900 text-center items-center justify-center transition"
         aria-controls="mobile-nav"
         aria-expanded={mobileNavOpen}
         onClick={() => setMobileNavOpen(!mobileNavOpen)}
