@@ -9,7 +9,7 @@ interface MenuItem {
   target?: string
 }
 
-export default function MobileMenu({ items }: { items: MenuItem[] }) {
+export default function MobileMenu({ items = [] }: { items?: MenuItem[] }) {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false)
 
   const trigger = useRef<HTMLButtonElement>(null)

@@ -47,6 +47,9 @@ export default async function Header({ mode = 'dark' }: {
     </nav>
   )
 
+  const hasMenu =
+    navigationData && navigationData.content && navigationData.content.menu_items
+
   return (
     <header className={`absolute w-full z-30 ${mode !== 'light' && 'dark'}`}>
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
@@ -58,10 +61,10 @@ export default async function Header({ mode = 'dark' }: {
           </div>
 
           {/* Desktop navigation */}
-          {navigationData ? (
+          {hasMenu ? (
             <>
-              <StoryblokComponent blok={navigationData.content} />
-              <MobileMenu items={navigationData.content.menu_items} />
+              <StoryblokComponent blok={navigationData!.content} />
+              <MobileMenu items={navigationData!.content.menu_items} />
             </>
           ) : (
             <>
