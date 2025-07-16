@@ -373,14 +373,14 @@ const stories = [
     }
   },
   {
-    name: "history",
-    slug: "history",
+    name: "stations",
+    slug: "stations",
     content: {
       component: "page",
-      title: "Broadcast History",
-      slug: "history",
-      meta_description: "Historical overview of Idaho radio stations",
-      seo_title: "Idaho Broadcasting History",
+      title: "Stations",
+      slug: "stations",
+      meta_description: "Directory of Idaho radio stations",
+      seo_title: "Idaho Broadcasting Stations",
       content_sections: [
         {
           component: "history_section",
@@ -425,8 +425,8 @@ const stories = [
         },
         {
           component: 'navigation_item',
-          label: 'History',
-          href: '/history'
+          label: 'Stations',
+          href: '/stations'
         },
         {
           component: 'navigation_item',

@@ -12,7 +12,7 @@ interface MenuItem {
 
 const navItems: MenuItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'History', href: '/history' },
+  { label: 'Stations', href: '/stations' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'News', href: '/news' },
   { label: 'Events', href: '/events' },

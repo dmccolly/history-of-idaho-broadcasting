@@ -6,11 +6,11 @@ import { fallbackHistorySection } from '@/lib/data/history-fallback'
 export const dynamic = 'force-dynamic'
 
 export const metadata = {
-  title: 'Broadcast History - Idaho Broadcasting Foundation',
-  description: 'Discover the history of Idaho\'s radio stations',
+  title: 'Stations - Idaho Broadcasting Foundation',
+  description: "Explore Idaho's radio stations",
 }
 
-export default async function HistoryPage() {
+export default async function StationsPage() {
   if (!process.env.STORYBLOK_ACCESS_TOKEN) {
     return (
       <div className="min-h-screen bg-white">
@@ -21,7 +21,7 @@ export default async function HistoryPage() {
 
   try {
     const storyblokApi = getStoryblokApi()
-    const { data } = await storyblokApi.get('cdn/stories/history', { version: 'draft' })
+    const { data } = await storyblokApi.get('cdn/stories/stations', { version: 'draft' })
     const story = data?.story
     if (!story) {
       return (
@@ -37,7 +37,7 @@ export default async function HistoryPage() {
       </div>
     )
   } catch (error) {
-    console.error('Error loading history page:', error)
+    console.error('Error loading stations page:', error)
     return (
       <div className="min-h-screen bg-white">
         <HistorySection blok={fallbackHistorySection} />
