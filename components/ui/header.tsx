@@ -1,6 +1,7 @@
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
 import { getStoryblokApi, StoryblokComponent } from '@/lib/storyblok'
+import { navItems } from '@/lib/navItems'
 
 interface NavigationData {
   content: {
@@ -29,6 +30,23 @@ export default async function Header({ mode = 'dark' }: {
     console.error('Error fetching navigation from Storyblok:', error)
   }
 
+  const renderFallbackNav = () => (
+    <nav className="hidden md:flex md:grow">
+      <ul className="flex grow justify-start flex-wrap items-center">
+        {navItems.map((item) => (
+          <li key={item.href}>
+            <a
+              href={item.href}
+              className="font-medium text-slate-800 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+
   return (
     <header className={`absolute w-full z-30 ${mode !== 'light' && 'dark'}`}>
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
@@ -40,9 +58,18 @@ export default async function Header({ mode = 'dark' }: {
           </div>
 
           {/* Desktop navigation */}
-          {navigationData && <StoryblokComponent blok={navigationData.content} />}
-
-          {navigationData && <MobileMenu items={navigationData.content.menu_items} />}
+          {navigationData ? (
+            <>
+              <StoryblokComponent blok={navigationData.content} />
+              <MobileMenu items={navigationData.content.menu_items} />
+            </>
+          ) : (
+            <>
+              {console.warn('Navigation not found in Storyblok, using fallback.')}
+              {renderFallbackNav()}
+              <MobileMenu items={navItems.map((i) => ({ label: i.name, href: i.href }))} />
+            </>
+          )}
 
         </div>
       </div>
