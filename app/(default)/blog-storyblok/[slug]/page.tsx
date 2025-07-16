@@ -5,7 +5,79 @@ import '../../../../lib/storyblok'
 interface BlogPostPageProps {
   params: {
     slug: string
+import { getStoryblokApi, StoryblokComponent } from '@/lib/storyblok'
+import { notFound } from 'next/navigation'
+import '../../../../lib/storyblok'
+
+interface BlogPostPageProps {
+  params: {
+    slug: string
   }
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  try {
+    const storyblokApi = getStoryblokApi()
+    
+    const { data } = await storyblokApi.get(`cdn/stories/blog-posts/${params.slug}`, {
+      version: 'draft', // Use 'published' in production
+    })
+    
+    if (!data.story) {
+      notFound()
+    }
+    
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <StoryblokComponent blok={data.story.content} />
+      </div>
+    )
+  } catch (error) {
+    console.error('Error fetching blog post:', error)
+    notFound()
+  }
+}
+
+export async function generateStaticParams() {
+  try {
+    const storyblokApi = getStoryblokApi()
+    const { data } = await storyblokApi.get('cdn/stories', {
+      starts_with: 'blog-posts/',
+      version: 'published',
+    })
+    
+    return data.stories.map((story: any) => ({
+      slug: story.slug,
+    }))
+  } catch (error) {
+    console.error('Error generating static params:', error)
+    return []
+  }
+}
+
+export async function generateMetadata({ params }: BlogPostPageProps) {
+  try {
+    const storyblokApi = getStoryblokApi()
+    const { data } = await storyblokApi.get(`cdn/stories/blog-posts/${params.slug}`, {
+      version: 'published',
+    })
+    
+    if (!data.story) {
+      return {
+        title: 'Blog Post Not Found',
+      }
+    }
+    
+    return {
+      title: data.story.content.title || data.story.name,
+      description: data.story.content.description || '',
+    }
+  } catch (error) {
+    return {
+      title: 'Blog Post',
+    }
+  }
+}
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
