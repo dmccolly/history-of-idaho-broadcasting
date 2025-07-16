@@ -5,7 +5,85 @@ import '../../../../lib/storyblok'
 interface BlogPostPageProps {
   params: {
     slug: string
-import { getStoryblokApi, StoryblokComponent } from '@/lib/storyblok'
+import { getStoryblokApi, import { getStoryblokApi, StoryblokComponent } from '@/lib/storyblok'
+import { notFound } from 'next/navigation'
+import '../../../../lib/storyblok'
+
+interface BlogPostPageProps {
+  params: {
+    slug: string
+  }
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  try {
+    const storyblokApi = getStoryblokApi()
+    
+    const { data } = await storyblokApi.get(`cdn/stories/blog-posts/${params.slug}`, {
+      version: 'draft', // Use 'published' in production
+    })
+    
+    if (!data.story) {
+      notFound()
+    }
+    
+    return (
+      <div className="min-h-screen bg-white">
+        <StoryblokComponent blok={data.story.content} />
+      </div>
+    )
+  } catch (error) {
+    console.error('Error fetching blog post:', error)
+    notFound()
+  }
+}
+
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  // Return a placeholder if no Storyblok token is provided
+  if (!process.env.STORYBLOK_TOKEN) {
+    return []
+  }
+
+  try {
+    const storyblokApi = getStoryblokApi()
+    const { data } = await storyblokApi.get('cdn/stories', {
+      starts_with: 'blog-posts/',
+      version: 'published',
+    })
+    
+    return data.stories.map((story: any) => ({
+      slug: story.slug,
+    }))
+  } catch (error) {
+    console.error('Error generating static params:', error)
+    return []
+  }
+}
+
+export async function generateMetadata({ params }: BlogPostPageProps) {
+  try {
+    const storyblokApi = getStoryblokApi()
+    const { data } = await storyblokApi.get(`cdn/stories/blog-posts/${params.slug}`, {
+      version: 'published',
+    })
+    
+    if (!data.story) {
+      return {
+        title: 'Blog Post Not Found',
+      }
+    }
+    
+    return {
+      title: data.story.content.title || data.story.name,
+      description: data.story.content.description || '',
+    }
+  } catch (error) {
+    return {
+      title: 'Blog Post',
+    }
+  }
+} } from '@/lib/storyblok'
 import { notFound } from 'next/navigation'
 import '../../../../lib/storyblok'
 
