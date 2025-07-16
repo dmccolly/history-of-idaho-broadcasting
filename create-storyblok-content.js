@@ -268,7 +268,7 @@ const contentTypes = [
     name: 'navigation',
     display_name: 'Navigation',
     schema: {
-      items: {
+      menu_items: {
         type: 'bloks',
         restrict_components: true,
         component_whitelist: ['navigation_item'],
@@ -417,11 +417,11 @@ const stories = [
     slug: 'navigation',
     content: {
       component: 'navigation',
-      items: [
+      menu_items: [
         {
           component: 'navigation_item',
           label: 'Home',
-          href: '/' 
+          href: '/'
         },
         {
           component: 'navigation_item',

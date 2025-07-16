@@ -1,9 +1,6 @@
-import Link from 'next/link'
 import Logo from './logo'
-import Dropdown from '@/components/utils/dropdown'
 import MobileMenu from './mobile-menu'
 import { getStoryblokApi, StoryblokComponent } from '@/lib/storyblok'
-import { navItems } from '@/lib/navItems'
 
 interface NavigationData {
   content: {
@@ -29,7 +26,7 @@ export default async function Header({ mode = 'dark' }: {
       navigationData = data.story
     }
   } catch (error) {
-    console.warn('Navigation not found in Storyblok, using fallback')
+    console.error('Error fetching navigation from Storyblok:', error)
   }
 
   return (
@@ -43,42 +40,9 @@ export default async function Header({ mode = 'dark' }: {
           </div>
 
           {/* Desktop navigation */}
-          {navigationData ? (
-            <StoryblokComponent blok={navigationData.content} />
-          ) : (
-            // Fallback navigation when Storyblok is not configured
-            <nav className="hidden md:flex md:grow">
-              <ul className="flex grow justify-start flex-wrap items-center">
-                {navItems.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="font-medium text-slate-800 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-                <Dropdown title="MORE">
-                  <li>
-                    <Link href="/about" className="font-medium text-sm text-gray-600 hover:text-blue-600 flex py-2 px-5 leading-tight">About/Contact</Link>
-                  </li>
-                  <li>
-                    <Link href="/support" className="font-medium text-sm text-gray-600 hover:text-blue-600 flex py-2 px-5 leading-tight">Support</Link>
-                  </li>
-                </Dropdown>
-              </ul>
-              <ul className="flex grow justify-end flex-wrap items-center">
-                <li>
-                  <Link href="/events" className="font-medium text-blue-600 dark:text-slate-300 dark:hover:text-white px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out group">
-                    Join Events <span className="tracking-normal text-blue-600 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          )}
+          {navigationData && <StoryblokComponent blok={navigationData.content} />}
 
-          <MobileMenu />
+          {navigationData && <MobileMenu items={navigationData.content.menu_items} />}
 
         </div>
       </div>

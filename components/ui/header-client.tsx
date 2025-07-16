@@ -3,7 +3,21 @@
 import Link from 'next/link'
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
-import { navItems } from '@/lib/navItems'
+
+interface MenuItem {
+  label: string
+  href: string
+  target?: string
+}
+
+const navItems: MenuItem[] = [
+  { label: 'Home', href: '/' },
+  { label: 'History', href: '/history' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'News', href: '/news' },
+  { label: 'Events', href: '/events' },
+  { label: 'Back Corner', href: '/back-corner' },
+]
 
 export default function HeaderClient() {
   return (
@@ -26,14 +40,14 @@ export default function HeaderClient() {
                     href={item.href}
                     className="text-slate-700 hover:text-slate-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
                   >
-                    {item.name}
+                    {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <MobileMenu />
+          <MobileMenu items={navItems} />
 
         </div>
       </div>

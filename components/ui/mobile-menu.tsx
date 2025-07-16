@@ -3,9 +3,13 @@
 import { useState, useRef, useEffect } from 'react'
 import { Transition } from '@headlessui/react'
 import Link from 'next/link'
-import { navItems } from '@/lib/navItems'
+interface MenuItem {
+  label: string
+  href: string
+  target?: string
+}
 
-export default function MobileMenu() {
+export default function MobileMenu({ items }: { items: MenuItem[] }) {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false)
 
   const trigger = useRef<HTMLButtonElement>(null)
@@ -79,14 +83,14 @@ export default function MobileMenu() {
           className="absolute top-full h-screen pb-16 z-20 left-0 w-full overflow-scroll bg-white transform transition ease-out duration-200 data-enter:data-closed:-translate-y-2 data-closed:opacity-0"
         >        
           <ul className="px-5 py-2">
-            {navItems.map((item) => (
+            {items.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   className="flex font-medium text-slate-800 hover:text-blue-600 py-2"
                   onClick={() => setMobileNavOpen(false)}
                 >
-                  {item.name}
+                  {item.label}
                 </Link>
               </li>
             ))}
