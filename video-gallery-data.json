@@ -1,0 +1,149 @@
+{
+  "gallery_page": {
+    "title": "Our Video Interviews",
+    "subtitle": "Preserving Idaho's Broadcasting History",
+    "description": "In our ongoing effort to visually preserve Idaho's fascinating radio and television past, the History of Idaho Broadcasting Foundation has thus far conducted more than 75 video interviews with media legends and personalities throughout the state — who have generously shared with us anecdotal insights into their careers. Here are clips from some of those interviews.",
+    "videos": [
+      {
+        "title": "Dee Sarton Interview",
+        "role": "Former KTVB-TV, Channel 7 anchor/reporter/program host",
+        "description": "DEE SARTON talks about what it was like starting out as a young reporter in Boise back in the late '70s, and working with legendary Channel 7 news director Sal Celeski.",
+        "photo_credit": "KTVB News Group",
+        "vimeo_url": "https://vimeo.com/[VIDEO_ID_TO_BE_ADDED]",
+        "thumbnail_alt": "Dee Sarton interview thumbnail"
+      },
+      {
+        "title": "Marcia Franklin Interview",
+        "role": "Idaho Public Television producer/Dialogue host",
+        "description": "MARCIA FRANKLIN talks about some of her most memorable Sun Valley Writers' Conference interviews, especially her 2016 sit-down with David Benioff and D.B. Weiss, creators of HBO's epic Game of Thrones series.",
+        "photo_credit": "Idaho Public Television",
+        "vimeo_url": "https://vimeo.com/[VIDEO_ID_TO_BE_ADDED]",
+        "thumbnail_alt": "Marcia Franklin interview thumbnail"
+      },
+      {
+        "title": "Don Nelson Interview",
+        "role": "KIVI-TV, Channel 6 anchor/reporter",
+        "description": "DON NELSON explains how Brink Chipman, who did three stints as the station's news director (1980-83; 1991-93; and 1996-97), came up with the now-legendary \"6 On Your Side\" consumer watchdog branding.",
+        "photo_credit": "KIVI, Channel 6",
+        "vimeo_url": "https://vimeo.com/[VIDEO_ID_TO_BE_ADDED]",
+        "thumbnail_alt": "Don Nelson interview thumbnail"
+      },
+      {
+        "title": "Kevin Miller Interview",
+        "role": "KIDO radio talk show host",
+        "description": "KEVIN MILLER tells us how \"Miller's Mission,\" his annual on-air fundraising effort to help support the Boise Rescue Mission, came about.",
+        "photo_credit": "Boise Rescue Mission",
+        "vimeo_url": "https://vimeo.com/[VIDEO_ID_TO_BE_ADDED]",
+        "thumbnail_alt": "Kevin Miller interview thumbnail"
+      },
+      {
+        "title": "Marty Holtman Interview",
+        "role": "KBOI radio deejay and KBOI-TV/KBCI-TV, Channel 2 weatherman/feature reporter",
+        "description": "The late MARTY HOLTMAN reminisces about his days — and nights — as late-night horror-movie-show host \"Claude Gloom.\" \"Claude\" hosted the hugely popular show entitled The Unknown, sponsored by Capital Volkswagen of Boise, which showed a different horror movie every week — movies like House of Dracula, The Bride of Frankenstein, Invaders from Mars, Attack of the 50 Foot Woman (the 1958 version), and on and on — each interspersed with live, locally-produced \"Claude Gloom\" video segments. The program aired every Thursday from 11 p.m. to 1 a.m., and ran from March, 1963 to the end of 1964.",
+        "photo_credit": "KBOI, Channel 2",
+        "vimeo_url": "https://vimeo.com/[VIDEO_ID_TO_BE_ADDED]",
+        "thumbnail_alt": "Marty Holtman interview thumbnail"
+      },
+      {
+        "title": "Marty Holtman's Santa Express",
+        "role": "Special Holiday Feature",
+        "description": "Idaho Broadcasting Foundation proudly presents Marty Holtman's Santa Express. Follow along in an adventure to the North Pole as our beloved Marty Holtman goes on a journey to deliver letters for Santa from the children of Idaho. While going through a box of old video tapes we discovered and digitally remastered a one-of-a-kind holiday classic. We invite you to relive the magic of the Emmy-winning \"Marty's Santa Express\".",
+        "photo_credit": "KBOI, Channel 2",
+        "vimeo_url": "https://vimeo.com/[VIDEO_ID_TO_BE_ADDED]",
+        "thumbnail_alt": "Marty Holtman Santa Express thumbnail"
+      }
+    ]
+  },
+  "storyblok_setup_instructions": {
+    "component_schema": {
+      "name": "video_gallery",
+      "display_name": "Video Gallery",
+      "schema": {
+        "title": {
+          "type": "text",
+          "required": false,
+          "description": "Gallery title"
+        },
+        "subtitle": {
+          "type": "text",
+          "required": false,
+          "description": "Gallery subtitle"
+        },
+        "description": {
+          "type": "textarea",
+          "required": false,
+          "description": "Gallery description"
+        },
+        "videos": {
+          "type": "bloks",
+          "required": false,
+          "restrict_components": true,
+          "component_whitelist": ["video_item"]
+        },
+        "layout": {
+          "type": "option",
+          "options": [
+            {"name": "Grid", "value": "grid"},
+            {"name": "List", "value": "list"}
+          ],
+          "default_value": "grid"
+        },
+        "columns": {
+          "type": "option",
+          "options": [
+            {"name": "2 Columns", "value": "2"},
+            {"name": "3 Columns", "value": "3"},
+            {"name": "4 Columns", "value": "4"}
+          ],
+          "default_value": "3"
+        },
+        "background_color": {
+          "type": "option",
+          "options": [
+            {"name": "White", "value": "white"},
+            {"name": "Gray", "value": "gray"},
+            {"name": "Dark", "value": "dark"}
+          ],
+          "default_value": "white"
+        }
+      }
+    },
+    "video_item_schema": {
+      "name": "video_item",
+      "display_name": "Video Item",
+      "schema": {
+        "title": {
+          "type": "text",
+          "required": true,
+          "description": "Video title"
+        },
+        "description": {
+          "type": "textarea",
+          "required": true,
+          "description": "Video description"
+        },
+        "role": {
+          "type": "text",
+          "required": false,
+          "description": "Person's role/position"
+        },
+        "photo_credit": {
+          "type": "text",
+          "required": false,
+          "description": "Photo credit information"
+        },
+        "vimeo_url": {
+          "type": "text",
+          "required": true,
+          "description": "Vimeo video URL"
+        },
+        "thumbnail": {
+          "type": "asset",
+          "required": false,
+          "description": "Video thumbnail image"
+        }
+      }
+    }
+  }
+}
+
