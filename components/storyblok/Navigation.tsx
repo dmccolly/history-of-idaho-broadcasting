@@ -2,6 +2,7 @@
 
 import { storyblokEditable, StoryblokComponent } from '@/lib/storyblok'
 import Link from 'next/link'
+import type { SbBlokData } from '@storyblok/react'
 
 interface NavigationItem {
   _uid: string
@@ -11,7 +12,7 @@ interface NavigationItem {
   target?: string
 }
 
-interface NavigationStoryblok {
+interface NavigationStoryblok extends SbBlokData {
   _uid: string
   component: 'navigation'
   menu_items: NavigationItem[]

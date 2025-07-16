@@ -2,8 +2,9 @@
 
 import { storyblokEditable } from '@/lib/storyblok'
 import Link from 'next/link'
+import type { SbBlokData } from '@storyblok/react'
 
-interface CTAStoryblok {
+interface CTAStoryblok extends SbBlokData {
   title: string
   description?: string
   button_text?: string

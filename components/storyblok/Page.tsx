@@ -1,9 +1,9 @@
 'use client'
 
 import { storyblokEditable, StoryblokComponent } from '@/lib/storyblok'
-import { SbBlokData } from '@storyblok/react'
+import type { SbBlokData } from '@storyblok/react'
 
-interface PageStoryblok {
+interface PageStoryblok extends SbBlokData {
   title: string
   slug: string
   meta_description?: string

@@ -2,8 +2,9 @@
 
 import { storyblokEditable } from '@/lib/storyblok'
 import Link from 'next/link'
+import type { SbBlokData } from '@storyblok/react'
 
-interface NavigationItemStoryblok {
+interface NavigationItemStoryblok extends SbBlokData {
   _uid: string
   component: 'navigation_item'
   label: string

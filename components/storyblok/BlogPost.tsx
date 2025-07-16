@@ -1,6 +1,7 @@
 import { storyblokEditable } from '@/lib/storyblok'
 // import { render } from '@storyblok/richtext'
 import Image from 'next/image'
+import type { SbBlokData } from '@storyblok/react'
 
 interface BlogPostProps {
   blok: {
@@ -15,7 +16,7 @@ interface BlogPostProps {
     published_date?: string
     tags?: string[]
     _uid: string
-  }
+  } & SbBlokData
 }
 
 export default function BlogPost({ blok }: BlogPostProps) {
