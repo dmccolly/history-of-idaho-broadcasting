@@ -47,8 +47,8 @@ export default function ContentSection({ blok }: ContentSectionProps) {
       }
       
       // If content is an object, try to extract text
-      if (blok.content && blok.content.content) {
-        const textContent = blok.content.content.map((item: any) => {
+      if (blok.content && typeof blok.content === 'object' && (blok.content as any).content) {
+        const textContent = (blok.content as any).content.map((item: any) => {
           if (item.type === 'paragraph' && item.content) {
             return item.content.map((text: any) => text.text || '').join('')
           }
