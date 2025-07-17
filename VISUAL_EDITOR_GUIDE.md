@@ -122,8 +122,14 @@ Fields:
 
 ### 5. Enable Visual Editor
 1. In your story, click **Visual Editor**
-2. Set preview URL: `http://localhost:3001`
+2. Set the **Preview URL** to your running site. During local development use `http://localhost:3001`. For a hosted site (for example Netlify or GitHub Pages) set it to the full URL of that deployment, such as `https://your-site.netlify.app`.
 3. Start editing visually!
+
+### 6. Use the Visual Editor on Netlify
+If your project is deployed on Netlify you can edit content remotely without running a local server:
+1. Ensure your Netlify environment variables include `STORYBLOK_ACCESS_TOKEN` with the same preview token you use locally.
+2. In Storyblok's **Visual Editor** settings, set the Preview URL to your Netlify domain.
+3. Open any story and click **Visual Editor**. Changes will appear live on the Netlify site.
 
 ## 🎯 How to Edit Content
 
