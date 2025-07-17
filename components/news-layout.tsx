@@ -167,7 +167,7 @@ function CompactNewsFeed() {
             <article key={item.id} className="border-b border-slate-100 pb-4 last:border-b-0">
               <div className="flex items-start justify-between mb-2">
                 <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${categoryColors[item.category]}`}>
-                  {item.category === 'local' ? 'Idaho' : categoryLabels[item.category]}
+                  {item.category === 'local' ? 'Idaho' : categoryLabels[item.category as keyof typeof categoryLabels]}
                 </span>
                 <span className="text-xs text-slate-500">{new Date(item.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
               </div>
