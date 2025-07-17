@@ -1,23 +1,17 @@
 'use client'
-[key: string]: any
 
 import { storyblokEditable } from '@/lib/storyblok'
 import Link from 'next/link'
 
 interface CTAStoryblok {
-  title: string
-  description?: string
-  button_text?: string
-  button_link?: {
-    url: string
-    target?: string
-  }
-  background_color?: 'primary' | 'secondary' | 'dark'
-  layout?: 'centered' | 'split'
+  title?: string
+  subtitle?: string
+  // ... other fields ...
   _uid: string
   component: 'cta'
-  [key: string]: any
+  [key: string]: any  // ADD THIS LINE HERE
 }
+
 
 interface CTAProps {
   blok: CTAStoryblok
