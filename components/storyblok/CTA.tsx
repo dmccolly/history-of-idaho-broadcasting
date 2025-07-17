@@ -15,6 +15,7 @@ interface CTAStoryblok {
   layout?: 'centered' | 'split'
   _uid: string
   component: 'cta'
+  [key: string]: any
 }
 
 interface CTAProps {
