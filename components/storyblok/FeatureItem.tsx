@@ -6,20 +6,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 interface FeatureItemStoryblok {
-  title: string
+  title?: string
   description?: string
-  icon?: {
-    filename: string
-    alt?: string
-  }
-  link?: {
-    url: string
-    target?: string
-  }
+  icon?: string
+  link?: string
   _uid: string
   component: 'feature_item'
   [key: string]: any
 }
+
 
 interface FeatureItemProps {
   blok: FeatureItemStoryblok
