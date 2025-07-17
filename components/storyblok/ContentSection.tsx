@@ -3,7 +3,6 @@
 import { storyblokEditable } from '@/lib/storyblok'
 // import { render } from '@storyblok/richtext'
 import Image from 'next/image'
-[key: string]: any
 
 interface ContentSectionStoryblok {
   title?: string
