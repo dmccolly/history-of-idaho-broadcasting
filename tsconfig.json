@@ -4,7 +4,16 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
+    "compilerOptions": {
     "strict": false,
+    "skipLibCheck": true,
+    "noEmit": false,
+  "noUnusedLocals": false,
+  "noUnusedParameters": false,
+  "exactOptionalPropertyTypes": false,
+  // ... rest of existing options
+}
+
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
