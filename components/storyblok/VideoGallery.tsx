@@ -3,7 +3,7 @@
 import { storyblokEditable } from '@/lib/storyblok'
 import Image from 'next/image'
 
-iinterface VideoItem {
+interface VideoItem {
   title: string
   description: string
   role: string
