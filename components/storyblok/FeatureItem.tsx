@@ -17,6 +17,7 @@ interface FeatureItemStoryblok {
   }
   _uid: string
   component: 'feature_item'
+  [key: string]: any
 }
 
 interface FeatureItemProps {
