@@ -14,7 +14,7 @@ const videoData = [
     role: "Former KTVB-TV, Channel 7 anchor/reporter/program host",
     description: "DEE SARTON talks about what it was like starting out as a young reporter in Boise back in the late '70s, and working with legendary Channel 7 news director Sal Celeski.",
     photo_credit: "KTVB News Group",
-    vimeo_url: "https://vimeo.com/863352797",
+    vimeo_url: "https://vimeo.com/982877483",
     _uid: "video-1"
   },
   {
@@ -22,7 +22,7 @@ const videoData = [
     role: "Idaho Public Television producer/Dialogue host",
     description: "MARCIA FRANKLIN talks about some of her most memorable Sun Valley Writers' Conference interviews, especially her 2016 sit-down with David Benioff and D.B. Weiss, creators of HBO's epic Game of Thrones series.",
     photo_credit: "Idaho Public Television",
-    vimeo_url: "https://vimeo.com/863352797",
+    vimeo_url: "https://vimeo.com/982872224",
     _uid: "video-2"
   },
   {
@@ -30,7 +30,7 @@ const videoData = [
     role: "KIVI-TV, Channel 6 anchor/reporter",
     description: "DON NELSON explains how Brink Chipman, who did three stints as the station's news director (1980-83; 1991-93; and 1996-97), came up with the now-legendary \"6 On Your Side\" consumer watchdog branding.",
     photo_credit: "KIVI, Channel 6",
-    vimeo_url: "https://vimeo.com/863352797",
+    vimeo_url: "https://vimeo.com/982856307",
     _uid: "video-3"
   },
   {
@@ -38,7 +38,7 @@ const videoData = [
     role: "KIDO radio talk show host",
     description: "KEVIN MILLER tells us how \"Miller's Mission,\" his annual on-air fundraising effort to help support the Boise Rescue Mission, came about.",
     photo_credit: "Boise Rescue Mission",
-    vimeo_url: "https://vimeo.com/863352797",
+    vimeo_url: "https://vimeo.com/982690679",
     _uid: "video-4"
   },
   {
@@ -46,7 +46,7 @@ const videoData = [
     role: "KBOI radio deejay and KBOI-TV/KBCI-TV, Channel 2 weatherman/feature reporter",
     description: "The late MARTY HOLTMAN reminisces about his days — and nights — as late-night horror-movie-show host \"Claude Gloom.\" \"Claude\" hosted the hugely popular show entitled The Unknown, sponsored by Capital Volkswagen of Boise.",
     photo_credit: "KBOI, Channel 2",
-    vimeo_url: "https://vimeo.com/863352797",
+    vimeo_url: "https://vimeo.com/967979349",
     _uid: "video-5"
   }
 ];
