@@ -6,11 +6,15 @@ import Link from 'next/link'
 interface CTAStoryblok {
   title?: string
   subtitle?: string
-  // ... other fields ...
+  button_text?: string
+  button_link?: string
+  button_style?: 'primary' | 'secondary'
+  background_color?: 'white' | 'gray' | 'blue'
   _uid: string
   component: 'cta'
-  [key: string]: any  // ADD THIS LINE HERE
+  [key: string]: any
 }
+
 
 
 interface CTAProps {
