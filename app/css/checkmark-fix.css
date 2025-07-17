@@ -1,0 +1,5 @@
+/* Temporary fix to remove blocking checkmark/play overlays */
+button[aria-label="Watch the video"],
+svg[viewBox="0 0 88 88"] {
+  display: none !important;
+}
