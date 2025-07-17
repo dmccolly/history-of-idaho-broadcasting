@@ -1,5 +1,4 @@
 'use client'
-[key: string]: any
 
 import { storyblokEditable, StoryblokComponent } from '@/lib/storyblok'
 import { SbBlokData } from '@storyblok/react'
