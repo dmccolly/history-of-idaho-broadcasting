@@ -1,10 +1,9 @@
 'use client'
-[key: string]: any
 
 import { storyblokEditable } from '@/lib/storyblok'
 import Image from 'next/image'
 
-interface VideoItem {
+iinterface VideoItem {
   title: string
   description: string
   role: string
@@ -15,6 +14,7 @@ interface VideoItem {
     alt?: string
   }
   _uid: string
+  [key: string]: any  // ADD THIS LINE HERE
 }
 
 interface VideoGalleryStoryblok {
@@ -27,7 +27,9 @@ interface VideoGalleryStoryblok {
   background_color?: 'white' | 'gray' | 'dark'
   _uid: string
   component: 'video_gallery'
+  [key: string]: any  // ADD THIS LINE HERE
 }
+
 
 interface VideoGalleryProps {
   blok: VideoGalleryStoryblok
