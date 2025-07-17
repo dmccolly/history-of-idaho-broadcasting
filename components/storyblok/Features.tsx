@@ -9,7 +9,7 @@ interface FeaturesStoryblok {
   features_list?: SbBlokData[]
   layout?: 'grid' | 'list' | 'cards'
   _uid: string
-  component: 'features
+  component: '
   [key: string]: any
 }
 
