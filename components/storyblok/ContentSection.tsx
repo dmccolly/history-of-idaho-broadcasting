@@ -15,7 +15,7 @@ interface ContentSectionStoryblok {
   }
   image_position?: 'left' | 'right' | 'top' | 'bottom'
   _uid: string
-  component: content_section'
+component: 'content_section'
   [key: string]: any
 }
 
