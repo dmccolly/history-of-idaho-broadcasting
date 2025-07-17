@@ -7,18 +7,17 @@ import Image from 'next/image'
 
 interface ContentSectionStoryblok {
   title?: string
-  content?: any // Richtext content
-  layout?: 'single_column' | 'two_column' | 'three_column'
-  background_color?: 'white' | 'gray' | 'dark'
+  content?: string
   image?: {
     filename: string
     alt?: string
   }
-  image_position?: 'left' | 'right' | 'top' | 'bottom'
+  layout?: 'left' | 'right' | 'center'
   _uid: string
-component: 'content_section'
+  component: 'content_section'
   [key: string]: any
 }
+
 
 interface ContentSectionProps {
   blok: ContentSectionStoryblok
