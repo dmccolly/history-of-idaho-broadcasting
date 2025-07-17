@@ -58,8 +58,8 @@ export default function CTA({ blok }: CTAProps) {
           {blok.button_text && blok.button_link && (
             <div className={blok.layout === 'split' ? 'lg:flex-shrink-0' : 'mt-8'}>
               <Link
-                href={blok.button_link.url}
-                target={blok.button_link.target || '_self'}
+                href={blok.button_link}
+                target="_self"
                 className={`inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md transition-colors duration-200 ${buttonClass}`}
               >
                 {blok.button_text}
