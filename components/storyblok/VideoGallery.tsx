@@ -1,4 +1,5 @@
 'use client'
+[key: string]: any
 
 import { storyblokEditable } from '@/lib/storyblok'
 import Image from 'next/image'
