@@ -83,35 +83,35 @@ The video gallery has been implemented with the following components:
    - Role: "Former KTVB-TV, Channel 7 anchor/reporter/program host"
    - Description: "DEE SARTON talks about what it was like starting out as a young reporter in Boise back in the late '70s, and working with legendary Channel 7 news director Sal Celeski."
    - Photo Credit: "KTVB News Group"
-   - Vimeo URL: [Add actual Vimeo URL when available]
+   - Vimeo URL: https://vimeo.com/982877483
 
    **Video 2 - Marcia Franklin**:
    - Title: "Marcia Franklin Interview"
    - Role: "Idaho Public Television producer/Dialogue host"
    - Description: "MARCIA FRANKLIN talks about some of her most memorable Sun Valley Writers' Conference interviews, especially her 2016 sit-down with David Benioff and D.B. Weiss, creators of HBO's epic Game of Thrones series."
    - Photo Credit: "Idaho Public Television"
-   - Vimeo URL: [Add actual Vimeo URL when available]
+   - Vimeo URL: https://vimeo.com/982872224
 
    **Video 3 - Don Nelson**:
    - Title: "Don Nelson Interview"
    - Role: "KIVI-TV, Channel 6 anchor/reporter"
    - Description: "DON NELSON explains how Brink Chipman, who did three stints as the station's news director (1980-83; 1991-93; and 1996-97), came up with the now-legendary '6 On Your Side' consumer watchdog branding."
    - Photo Credit: "KIVI, Channel 6"
-   - Vimeo URL: [Add actual Vimeo URL when available]
+   - Vimeo URL: https://vimeo.com/982856307
 
    **Video 4 - Kevin Miller**:
    - Title: "Kevin Miller Interview"
    - Role: "KIDO radio talk show host"
    - Description: "KEVIN MILLER tells us how 'Miller's Mission,' his annual on-air fundraising effort to help support the Boise Rescue Mission, came about."
    - Photo Credit: "Boise Rescue Mission"
-   - Vimeo URL: [Add actual Vimeo URL when available]
+   - Vimeo URL: https://vimeo.com/982690679
 
    **Video 5 - Marty Holtman**:
    - Title: "Marty Holtman Interview"
    - Role: "KBOI radio deejay and KBOI-TV/KBCI-TV, Channel 2 weatherman/feature reporter"
    - Description: "The late MARTY HOLTMAN reminisces about his days — and nights — as late-night horror-movie-show host 'Claude Gloom.' 'Claude' hosted the hugely popular show entitled The Unknown, sponsored by Capital Volkswagen of Boise..."
    - Photo Credit: "KBOI, Channel 2"
-   - Vimeo URL: [Add actual Vimeo URL when available]
+   - Vimeo URL: https://vimeo.com/967979349
 
    **Video 6 - Marty Holtman Santa Express**:
    - Title: "Marty Holtman's Santa Express"
