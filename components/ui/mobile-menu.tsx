@@ -41,12 +41,23 @@ export default function MobileMenu({ navItems = [] }: MobileMenuProps) {
     return () => document.removeEventListener('keydown', keyHandler)
   })
 
+  // Ensure Stations link is included in mobile menu
+  const menuItems = navItems.length > 0 ? navItems : [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Events', href: '/events' },
+    { name: 'News', href: '/news' },
+    { name: 'Stations', href: '/stations' },
+    { name: 'Back Corner', href: '/back-corner' },
+    { name: 'Videos', href: '/video' },
+  ];
+
   return (
     <div className="flex md:hidden">
       {/* Hamburger button */}
       <button
         ref={trigger}
-        className={`group inline-flex w-8 h-8 text-slate-300 hover:text-white text-center items-center justify-center transition`}
+        className={`group inline-flex w-8 h-8 text-slate-800 hover:text-blue-600 text-center items-center justify-center transition`}
         aria-controls="mobile-nav"
         aria-expanded={mobileNavOpen}
         onClick={() => setMobileNavOpen(!mobileNavOpen)}
@@ -88,7 +99,7 @@ export default function MobileMenu({ navItems = [] }: MobileMenuProps) {
           className="absolute top-full h-screen pb-16 z-20 left-0 w-full overflow-scroll bg-white transform transition ease-out duration-200 data-enter:data-closed:-translate-y-2 data-closed:opacity-0"
         >        
           <ul className="px-5 py-2">
-            {navItems.map((item, index) => (
+            {menuItems.map((item, index) => (
               <li key={index}>
                 <Link 
                   href={item.href} 

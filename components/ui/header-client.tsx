@@ -50,6 +50,7 @@ export default function HeaderClient() {
     { name: 'About', href: '/about' },
     { name: 'Events', href: '/events' },
     { name: 'News', href: '/news' },
+    { name: 'Stations', href: '/stations' },
     { name: 'Back Corner', href: '/back-corner' },
     { name: 'Videos', href: '/video' },
   ]
@@ -81,7 +82,7 @@ export default function HeaderClient() {
                 <li key={index}>
                   <Link
                     href={item.href}
-                    className="text-slate-600 hover:text-slate-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+                    className="font-medium text-slate-900 hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
                     target={item.target}
                   >
                     {item.name}
