@@ -39,8 +39,11 @@ interface StationsPageStoryblok {
 
 const StationsPage = ({ blok }: { blok: StationsPageStoryblok }) => {
   // Use Storyblok data if available, otherwise fall back to static data
-  const stations = blok.stations && blok.stations.length > 0 
-    ? blok.stations.map(station => ({
+  let stations = stationData;
+  
+  try {
+    if (blok && blok.stations && Array.isArray(blok.stations) && blok.stations.length > 0) {
+      stations = blok.stations.map(station => ({
         id: station.id || '',
         name: station.name || '',
         frequency: station.frequency || '',
@@ -49,15 +52,23 @@ const StationsPage = ({ blok }: { blok: StationsPageStoryblok }) => {
         description: station.description || '',
         fullContent: station.fullContent || '',
         color: station.color || '#000000'
-      }))
-    : stationData;
+      }));
+    }
+  } catch (error) {
+    console.error('Error processing stations data:', error);
+    // Fall back to static data
+    stations = stationData;
+  }
+
+  const title = blok?.title || "Our Radio Stations";
+  const description = blok?.description || "Discover our diverse portfolio of radio stations serving the Boise area and beyond. Each station has its own unique format and history, catering to different audiences and interests.";
 
   return (
     <div {...storyblokEditable(blok)}>
       <StationsPageComponent 
         stations={stations} 
-        title={blok.title}
-        description={blok.description}
+        title={title}
+        description={description}
       />
     </div>
   );

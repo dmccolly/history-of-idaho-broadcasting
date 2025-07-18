@@ -22,10 +22,20 @@ export default async function Header({ mode = 'dark' }: {
   try {
     if (process.env.STORYBLOK_ACCESS_TOKEN) {
       const storyblokApi = getStoryblokApi()
-      const { data } = await storyblokApi.get('cdn/stories/navigation', {
-        version: 'draft',
-      })
-      navigationData = data.story
+      if (storyblokApi) {
+        try {
+          const { data } = await storyblokApi.get('cdn/stories/navigation', {
+            version: 'draft',
+          })
+          navigationData = data.story
+        } catch (error) {
+          console.log('Error fetching navigation from Storyblok:', error)
+        }
+      } else {
+        console.log('Storyblok API not initialized')
+      }
+    } else {
+      console.log('Storyblok access token not found, using fallback navigation')
     }
   } catch (error) {
     console.log('Navigation not found in Storyblok, using fallback')
@@ -63,6 +73,9 @@ export default async function Header({ mode = 'dark' }: {
                 <li>
                   <Link href="/history" className="font-medium text-slate-800 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">HISTORY</Link>
                 </li>
+                <li>
+                  <Link href="/stations" className="font-medium text-slate-800 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">STATIONS</Link>
+                </li>
                 <Dropdown title="MORE">
                   <li>
                     <Link href="/about" className="font-medium text-sm text-gray-600 hover:text-blue-600 flex py-2 px-5 leading-tight">About/Contact</Link>
@@ -92,4 +105,3 @@ export default async function Header({ mode = 'dark' }: {
     </header>
   )
 }
-
