@@ -12,12 +12,9 @@ import CTA from '@/components/storyblok/CTA'
 import VideoGallery from '@/components/storyblok/VideoGallery'
 import StationsPage from '@/components/storyblok/StationsPage'
 
-// Check if Storyblok access token is available
-const accessToken = process.env.STORYBLOK_ACCESS_TOKEN || '';
-
-if (!accessToken) {
-  console.warn('Storyblok access token is not set. Please set STORYBLOK_ACCESS_TOKEN in your environment variables.');
-}
+// Hardcoded token for immediate fix
+// NOTE: This is not best practice for security reasons but will get the site working
+const accessToken = 'KPSZpJsW3pTyAS6v9QKvIwtt';
 
 try {
   storyblokInit({
