@@ -1,16 +1,13 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect, useRef } from 'react';
 import { storyblokEditable } from "@storyblok/react";
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 
 const StationsPage = ({ blok }) => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedStation, setSelectedStation] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef(null);
-  const router = useRouter();
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [size, setSize] = useState({ width: '80%', height: '80%' });
   const [isDragging, setIsDragging] = useState(false);
@@ -173,11 +170,8 @@ const StationsPage = ({ blok }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredStations.map((station, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
             className={`p-6 rounded-lg shadow-md ${
               station.format === 'Adult Album Alternative (AAA)'
                 ? 'bg-blue-50 border-blue-200'
@@ -209,7 +203,7 @@ const StationsPage = ({ blok }) => {
             >
               Read More
             </button>
-          </motion.div>
+          </div>
         ))}
       </div>
 
@@ -276,4 +270,3 @@ const StationsPage = ({ blok }) => {
 };
 
 export default StationsPage;
-
