@@ -36,3 +36,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Rolling Back a Netlify Deploy
+
+If a new build fails or causes issues, you can revert your site to a previous deployment using Netlify's dashboard. See [NETLIFY_ROLLBACK.md](./NETLIFY_ROLLBACK.md) for detailed steps.
