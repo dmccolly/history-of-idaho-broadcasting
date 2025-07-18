@@ -8,15 +8,11 @@ export const metadata = {
   description: 'Explore our diverse portfolio of radio stations serving the Boise area and beyond.',
 };
 
-export default async function Stations() {
-  // In a real implementation, this data would come from Storyblok
-  // For now, we'll use our static data
-  const stations = stationData;
-  
+export default function StationsRoute() {
   return (
     <main>
       <div className="stations-background"></div>
-      <StationsPage stations={stations} />
+      <StationsPage stations={stationData} />
     </main>
   );
 }
