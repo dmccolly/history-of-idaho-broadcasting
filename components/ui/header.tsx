@@ -3,6 +3,7 @@ import Logo from './logo'
 import Dropdown from '@/components/utils/dropdown'
 import MobileMenu from './mobile-menu'
 import { getStoryblokApi, StoryblokComponent } from '@/lib/storyblok'
+import { STORYBLOK_TOKEN } from '@/lib/storyblok-config'
 
 interface NavigationData {
   content: {
@@ -18,24 +19,22 @@ export default async function Header({ mode = 'dark' }: {
 }) {
   let navigationData: NavigationData | null = null
   
-  // Try to fetch navigation from Storyblok
+  // Try to fetch navigation from Storyblok using hardcoded token
   try {
-    if (process.env.STORYBLOK_ACCESS_TOKEN) {
-      const storyblokApi = getStoryblokApi()
-      if (storyblokApi) {
-        try {
-          const { data } = await storyblokApi.get('cdn/stories/navigation', {
-            version: 'draft',
-          })
-          navigationData = data.story
-        } catch (error) {
-          console.log('Error fetching navigation from Storyblok:', error)
-        }
-      } else {
-        console.log('Storyblok API not initialized')
+    const storyblokApi = getStoryblokApi()
+    if (storyblokApi) {
+      try {
+        const { data } = await storyblokApi.get('cdn/stories/navigation', {
+          version: 'draft',
+          token: STORYBLOK_TOKEN, // Use hardcoded token directly
+        })
+        navigationData = data.story
+        console.log('Navigation data fetched successfully');
+      } catch (error) {
+        console.log('Error fetching navigation from Storyblok:', error)
       }
     } else {
-      console.log('Storyblok access token not found, using fallback navigation')
+      console.log('Storyblok API not initialized')
     }
   } catch (error) {
     console.log('Navigation not found in Storyblok, using fallback')

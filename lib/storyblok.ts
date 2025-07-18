@@ -11,10 +11,10 @@ import FeatureItem from '@/components/storyblok/FeatureItem'
 import CTA from '@/components/storyblok/CTA'
 import VideoGallery from '@/components/storyblok/VideoGallery'
 import StationsPage from '@/components/storyblok/StationsPage'
+import { STORYBLOK_TOKEN } from './storyblok-config'
 
-// Hardcoded token for immediate fix
-// NOTE: This is not best practice for security reasons but will get the site working
-const accessToken = 'KPSZpJsW3pTyAS6v9QKvIwtt';
+// Always use the hardcoded token from storyblok-config.js
+const accessToken = STORYBLOK_TOKEN;
 
 try {
   storyblokInit({
@@ -35,6 +35,7 @@ try {
       'stations_page': StationsPage,
     },
   });
+  console.log('Storyblok initialized with hardcoded token');
 } catch (error) {
   console.error('Error initializing Storyblok:', error);
 }
