@@ -13,14 +13,9 @@ import VideoGallery from '@/components/storyblok/VideoGallery'
 import StationsPage from '@/components/storyblok/StationsPage'
 import { STORYBLOK_TOKEN } from './storyblok-config'
 
-const storyblokApi = new StoryblokClient({
-  accessToken: process.env.STORYBLOK_ACCESS_TOKEN
-});
-
-
 try {
   storyblokInit({
-    accessToken: accessToken,
+    accessToken: STORYBLOK_TOKEN,
     use: [apiPlugin],
     components: {
       'blog-post': BlogPost,
@@ -37,7 +32,7 @@ try {
       'stations_page': StationsPage,
     },
   });
-  console.log('Storyblok initialized with hardcoded token');
+  console.log('Storyblok initialized successfully');
 } catch (error) {
   console.error('Error initializing Storyblok:', error);
 }
