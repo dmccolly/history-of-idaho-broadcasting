@@ -1,4 +1,5 @@
 import './css/style.css'
+import '../styles/stations.css'
 
 import { Inter } from 'next/font/google'
 import AOSInit from '@/components/aos-init'
