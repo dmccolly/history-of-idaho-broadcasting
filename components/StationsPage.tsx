@@ -1,4 +1,4 @@
-
+"use client"
 
 import React, { useState, useEffect, useRef } from 'react';
 import { storyblokEditable } from "@storyblok/react";
@@ -276,3 +276,4 @@ const StationsPage = ({ blok }) => {
 };
 
 export default StationsPage;
+
