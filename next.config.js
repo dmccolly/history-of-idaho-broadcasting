@@ -29,5 +29,8 @@ const nextConfig = {
           pagesBufferLength: 2,
     }
 }
+env: {
+  STORYBLOK_ACCESS_TOKEN: process.env.STORYBLOK_ACCESS_TOKEN,
+}
 
 module.exports = nextConfig
