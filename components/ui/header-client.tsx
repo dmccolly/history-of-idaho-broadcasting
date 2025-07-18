@@ -94,7 +94,7 @@ export default function HeaderClient() {
                 <li key={index}>
                   <Link
                     href={item.href}
-                    className="font-medium text-slate-900 hover:text-blue-600 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+                    className="font-medium text-white hover:text-blue-300 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
                     target={item.target}
                   >
                     {item.name}
@@ -107,7 +107,7 @@ export default function HeaderClient() {
           {/* Mobile Menu Button */}
           <div className="flex md:hidden">
             <button
-              className={`group inline-flex w-8 h-8 text-slate-800 hover:text-blue-600 text-center items-center justify-center transition`}
+              className={`group inline-flex w-8 h-8 text-white hover:text-blue-300 text-center items-center justify-center transition`}
               aria-controls="mobile-nav"
               aria-expanded={mobileNavOpen}
               onClick={() => setMobileNavOpen(!mobileNavOpen)}
