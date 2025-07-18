@@ -13,8 +13,10 @@ import VideoGallery from '@/components/storyblok/VideoGallery'
 import StationsPage from '@/components/storyblok/StationsPage'
 import { STORYBLOK_TOKEN } from './storyblok-config'
 
-// Always use the hardcoded token from storyblok-config.js
-const accessToken = STORYBLOK_TOKEN;
+const storyblokApi = new StoryblokClient({
+  accessToken: process.env.STORYBLOK_ACCESS_TOKEN
+});
+
 
 try {
   storyblokInit({
