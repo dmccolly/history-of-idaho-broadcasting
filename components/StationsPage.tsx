@@ -1,10 +1,9 @@
 
+
 import React, { useState, useEffect, useRef } from 'react';
-import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
+import { storyblokEditable } from "@storyblok/react";
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
-import { Draggable } from 'react-draggable';
-import { Resizable } from 're-resizable';
+import { useRouter } from 'next/navigation';
 
 const StationsPage = ({ blok }) => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -12,6 +11,13 @@ const StationsPage = ({ blok }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef(null);
   const router = useRouter();
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [size, setSize] = useState({ width: '80%', height: '80%' });
+  const [isDragging, setIsDragging] = useState(false);
+  const [isResizing, setIsResizing] = useState(false);
+  const [resizeDirection, setResizeDirection] = useState(null);
+  const [startPos, setStartPos] = useState({ x: 0, y: 0 });
+  const [startSize, setStartSize] = useState({ width: 0, height: 0 });
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter);
@@ -20,6 +26,7 @@ const StationsPage = ({ blok }) => {
   const handleReadMore = (station) => {
     setSelectedStation(station);
     setIsModalOpen(true);
+    setPosition({ x: 0, y: 0 });
   };
 
   const closeModal = () => {
@@ -42,6 +49,100 @@ const StationsPage = ({ blok }) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isModalOpen]);
+
+  // Handle modal dragging
+  const startDrag = (e) => {
+    if (e.target.classList.contains('modal-handle')) {
+      setIsDragging(true);
+      setStartPos({ x: e.clientX - position.x, y: e.clientY - position.y });
+    }
+  };
+
+  const onDrag = (e) => {
+    if (isDragging) {
+      const newX = e.clientX - startPos.x;
+      const newY = e.clientY - startPos.y;
+      setPosition({ x: newX, y: newY });
+    }
+  };
+
+  const endDrag = () => {
+    setIsDragging(false);
+  };
+
+  // Handle modal resizing
+  const startResize = (e, direction) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsResizing(true);
+    setResizeDirection(direction);
+    setStartPos({ x: e.clientX, y: e.clientY });
+    
+    const modalElement = modalRef.current;
+    if (modalElement) {
+      setStartSize({
+        width: modalElement.offsetWidth,
+        height: modalElement.offsetHeight
+      });
+    }
+  };
+
+  const onResize = (e) => {
+    if (!isResizing) return;
+    
+    const dx = e.clientX - startPos.x;
+    const dy = e.clientY - startPos.y;
+    
+    let newWidth = startSize.width;
+    let newHeight = startSize.height;
+    
+    if (resizeDirection.includes('e')) {
+      newWidth = Math.max(300, startSize.width + dx);
+    } else if (resizeDirection.includes('w')) {
+      newWidth = Math.max(300, startSize.width - dx);
+      if (newWidth !== startSize.width - dx) {
+        // Adjust position if we hit min width
+        const adjustX = startSize.width - dx - newWidth;
+        setPosition(prev => ({ ...prev, x: prev.x + adjustX }));
+      } else {
+        setPosition(prev => ({ ...prev, x: prev.x + dx }));
+      }
+    }
+    
+    if (resizeDirection.includes('s')) {
+      newHeight = Math.max(300, startSize.height + dy);
+    } else if (resizeDirection.includes('n')) {
+      newHeight = Math.max(300, startSize.height - dy);
+      if (newHeight !== startSize.height - dy) {
+        // Adjust position if we hit min height
+        const adjustY = startSize.height - dy - newHeight;
+        setPosition(prev => ({ ...prev, y: prev.y + adjustY }));
+      } else {
+        setPosition(prev => ({ ...prev, y: prev.y + dy }));
+      }
+    }
+    
+    setSize({
+      width: newWidth,
+      height: newHeight
+    });
+  };
+
+  const endResize = () => {
+    setIsResizing(false);
+  };
+
+  useEffect(() => {
+    if (isDragging || isResizing) {
+      document.addEventListener('mousemove', isDragging ? onDrag : onResize);
+      document.addEventListener('mouseup', isDragging ? endDrag : endResize);
+    }
+    
+    return () => {
+      document.removeEventListener('mousemove', isDragging ? onDrag : onResize);
+      document.removeEventListener('mouseup', isDragging ? endDrag : endResize);
+    };
+  }, [isDragging, isResizing]);
 
   const filteredStations = activeFilter === 'All'
     ? blok.stations
@@ -114,53 +215,60 @@ const StationsPage = ({ blok }) => {
 
       {isModalOpen && selectedStation && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <Draggable handle=".modal-handle">
-            <Resizable
-              defaultSize={{
-                width: '80%',
-                height: '80%',
-              }}
-              minWidth="300px"
-              minHeight="300px"
-              maxWidth="95%"
-              maxHeight="95%"
-              className="modal-container"
+          <div 
+            ref={modalRef} 
+            className="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col relative"
+            style={{
+              width: typeof size.width === 'number' ? `${size.width}px` : size.width,
+              height: typeof size.height === 'number' ? `${size.height}px` : size.height,
+              transform: `translate(${position.x}px, ${position.y}px)`,
+              maxWidth: '95%',
+              maxHeight: '95%',
+              minWidth: '300px',
+              minHeight: '300px'
+            }}
+          >
+            <div 
+              className="modal-handle bg-gray-100 p-4 flex justify-between items-center cursor-move"
+              onMouseDown={startDrag}
             >
-              <div 
-                ref={modalRef} 
-                className="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col"
-                style={{ width: '100%', height: '100%' }}
-              >
-                <div className="modal-handle bg-gray-100 p-4 flex justify-between items-center cursor-move">
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4">
-                      <img
-                        src={selectedStation.logo?.filename || '/placeholder-logo.png'}
-                        alt={`${selectedStation.callSign} logo`}
-                        className="w-10 h-10 object-contain"
-                      />
-                    </div>
-                    <div>
-                      <h2 className="text-xl font-bold">{selectedStation.callSign}</h2>
-                      <p className="text-blue-600">{selectedStation.frequency}</p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={closeModal}
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    &times;
-                  </button>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4">
+                  <img
+                    src={selectedStation.logo?.filename || '/placeholder-logo.png'}
+                    alt={`${selectedStation.callSign} logo`}
+                    className="w-10 h-10 object-contain"
+                  />
                 </div>
-                <div className="p-6 overflow-y-auto flex-grow">
-                  <h3 className="text-2xl font-bold mb-4">
-                    History of {selectedStation.callSign} {selectedStation.frequency} "{selectedStation.nickname}"
-                  </h3>
-                  <div dangerouslySetInnerHTML={{ __html: selectedStation.history }} />
+                <div>
+                  <h2 className="text-xl font-bold">{selectedStation.callSign}</h2>
+                  <p className="text-blue-600">{selectedStation.frequency}</p>
                 </div>
               </div>
-            </Resizable>
-          </Draggable>
+              <button
+                onClick={closeModal}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                &times;
+              </button>
+            </div>
+            <div className="p-6 overflow-y-auto flex-grow">
+              <h3 className="text-2xl font-bold mb-4">
+                History of {selectedStation.callSign} {selectedStation.frequency} "{selectedStation.nickname}"
+              </h3>
+              <div dangerouslySetInnerHTML={{ __html: selectedStation.history }} />
+            </div>
+            
+            {/* Resize handles */}
+            <div className="absolute top-0 left-0 w-4 h-4 cursor-nwse-resize" onMouseDown={(e) => startResize(e, 'nw')}></div>
+            <div className="absolute top-0 right-0 w-4 h-4 cursor-nesw-resize" onMouseDown={(e) => startResize(e, 'ne')}></div>
+            <div className="absolute bottom-0 left-0 w-4 h-4 cursor-nesw-resize" onMouseDown={(e) => startResize(e, 'sw')}></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 cursor-nwse-resize" onMouseDown={(e) => startResize(e, 'se')}></div>
+            <div className="absolute top-0 left-4 right-4 h-2 cursor-ns-resize" onMouseDown={(e) => startResize(e, 'n')}></div>
+            <div className="absolute bottom-0 left-4 right-4 h-2 cursor-ns-resize" onMouseDown={(e) => startResize(e, 's')}></div>
+            <div className="absolute left-0 top-4 bottom-4 w-2 cursor-ew-resize" onMouseDown={(e) => startResize(e, 'w')}></div>
+            <div className="absolute right-0 top-4 bottom-4 w-2 cursor-ew-resize" onMouseDown={(e) => startResize(e, 'e')}></div>
+          </div>
         </div>
       )}
     </div>
@@ -168,4 +276,3 @@ const StationsPage = ({ blok }) => {
 };
 
 export default StationsPage;
-
