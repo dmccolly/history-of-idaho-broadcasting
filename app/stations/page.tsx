@@ -1,7 +1,7 @@
 import React from 'react';
 import StationsPage from '../../components/StationsPage';
 import stationData from './station-data';
-import './stations.css';
+import '../../styles/stations.css';
 
 export const metadata = {
   title: 'Radio Stations | Boise Radio History',
