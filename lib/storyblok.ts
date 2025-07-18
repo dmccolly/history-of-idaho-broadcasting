@@ -10,6 +10,7 @@ import Features from '@/components/storyblok/Features'
 import FeatureItem from '@/components/storyblok/FeatureItem'
 import CTA from '@/components/storyblok/CTA'
 import VideoGallery from '@/components/storyblok/VideoGallery'
+import StationsPage from '@/components/storyblok/StationsPage'
 
 storyblokInit({
   accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
@@ -26,6 +27,7 @@ storyblokInit({
     'feature_item': FeatureItem,
     'cta': CTA,
     'video_gallery': VideoGallery,
+    'stations_page': StationsPage,
   },
 })
 
