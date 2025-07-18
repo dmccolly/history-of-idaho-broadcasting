@@ -1,0 +1,31 @@
+{
+  "name": "stations_page",
+  "display_name": "Stations Page",
+  "schema": {
+    "title": {
+      "type": "text",
+      "pos": 0,
+      "display_name": "Page Title",
+      "required": false,
+      "default_value": "Our Radio Stations",
+      "description": "Main title for the stations page"
+    },
+    "description": {
+      "type": "textarea",
+      "pos": 1,
+      "display_name": "Page Description",
+      "required": false,
+      "default_value": "Discover our diverse portfolio of radio stations serving the Boise area and beyond. Each station has its own unique format and history, catering to different audiences and interests.",
+      "description": "Introductory text for the stations page"
+    },
+    "stations": {
+      "type": "bloks",
+      "pos": 2,
+      "display_name": "Stations",
+      "required": false,
+      "restrict_components": true,
+      "component_whitelist": ["station_item"],
+      "description": "Radio stations to display on the page"
+    }
+  }
+}

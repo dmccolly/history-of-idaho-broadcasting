@@ -2,6 +2,7 @@
 
 import { storyblokEditable } from '@/lib/storyblok'
 import Image from 'next/image'
+import { useState, useMemo } from 'react'
 
 interface VideoItem {
   title: string
@@ -9,12 +10,13 @@ interface VideoItem {
   role: string
   photo_credit: string
   vimeo_url: string
+  category?: string
   thumbnail?: {
     filename: string
     alt?: string
   }
   _uid: string
-  [key: string]: any  // ADD THIS LINE HERE
+  [key: string]: any
 }
 
 interface VideoGalleryStoryblok {
@@ -25,17 +27,19 @@ interface VideoGalleryStoryblok {
   layout?: 'grid' | 'list'
   columns?: '2' | '3' | '4'
   background_color?: 'white' | 'gray' | 'dark'
+  enable_filtering?: boolean
   _uid: string
   component: 'video_gallery'
-  [key: string]: any  // ADD THIS LINE HERE
+  [key: string]: any
 }
-
 
 interface VideoGalleryProps {
   blok: VideoGalleryStoryblok
 }
 
 export default function VideoGallery({ blok }: VideoGalleryProps) {
+  const [activeFilter, setActiveFilter] = useState<string>('all')
+  
   const backgroundClass = {
     white: 'bg-white',
     gray: 'bg-gray-50',
@@ -53,6 +57,28 @@ export default function VideoGallery({ blok }: VideoGalleryProps) {
     const match = url.match(/vimeo\.com\/(\d+)/)
     return match ? match[1] : null
   }
+  
+  // Extract unique categories from videos
+  const categories = useMemo(() => {
+    if (!blok.videos || !blok.enable_filtering) return []
+    
+    const categorySet = new Set<string>()
+    blok.videos.forEach(video => {
+      if (video.category) {
+        categorySet.add(video.category)
+      }
+    })
+    
+    return Array.from(categorySet)
+  }, [blok.videos, blok.enable_filtering])
+  
+  // Filter videos based on active category
+  const filteredVideos = useMemo(() => {
+    if (!blok.videos) return []
+    if (activeFilter === 'all') return blok.videos
+    
+    return blok.videos.filter(video => video.category === activeFilter)
+  }, [blok.videos, activeFilter])
 
   const VideoCard = ({ video }: { video: VideoItem }) => {
     const vimeoId = extractVimeoId(video.vimeo_url)
@@ -146,11 +172,41 @@ export default function VideoGallery({ blok }: VideoGalleryProps) {
             </div>
           )}
         </div>
+        
+        {/* Category Filters */}
+        {blok.enable_filtering && categories.length > 0 && (
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            <button
+              onClick={() => setActiveFilter('all')}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeFilter === 'all' 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+              }`}
+            >
+              All Videos
+            </button>
+            
+            {categories.map(category => (
+              <button
+                key={category}
+                onClick={() => setActiveFilter(category)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === category 
+                    ? 'bg-blue-600 text-white' 
+                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Video Grid */}
-        {blok.videos && blok.videos.length > 0 ? (
+        {filteredVideos.length > 0 ? (
           <div className={`grid ${gridCols} gap-8`}>
-            {blok.videos.map((video) => (
+            {filteredVideos.map((video) => (
               <VideoCard key={video._uid} video={video} />
             ))}
           </div>
@@ -161,9 +217,11 @@ export default function VideoGallery({ blok }: VideoGalleryProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 className="text-xl font-medium text-gray-900 mb-2">No videos yet</h3>
+            <h3 className="text-xl font-medium text-gray-900 mb-2">No videos found</h3>
             <p className="text-gray-600">
-              Add video content in Storyblok to populate this gallery.
+              {activeFilter !== 'all' 
+                ? `No videos found in the "${activeFilter}" category.` 
+                : 'Add video content in Storyblok to populate this gallery.'}
             </p>
           </div>
         )}
@@ -171,4 +229,3 @@ export default function VideoGallery({ blok }: VideoGalleryProps) {
     </section>
   )
 }
-

@@ -18,9 +18,15 @@ interface Station {
 
 interface StationsPageProps {
   stations: Station[];
+  title?: string;
+  description?: string;
 }
 
-const StationsPage: React.FC<StationsPageProps> = ({ stations }) => {
+const StationsPage: React.FC<StationsPageProps> = ({ 
+  stations,
+  title = "Our Radio Stations",
+  description = "Discover our diverse portfolio of radio stations serving the Boise area and beyond. Each station has its own unique format and history, catering to different audiences and interests."
+}) => {
   const [selectedStation, setSelectedStation] = useState<Station | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
@@ -53,10 +59,9 @@ const StationsPage: React.FC<StationsPageProps> = ({ stations }) => {
   return (
     <div className="stations-page-container">
       <div className="page-header">
-        <h1 className="page-title">Our Radio Stations</h1>
+        <h1 className="page-title">{title}</h1>
         <p className="page-description">
-          Discover our diverse portfolio of radio stations serving the Boise area and beyond.
-          Each station has its own unique format and history, catering to different audiences and interests.
+          {description}
         </p>
       </div>
       

@@ -5,10 +5,60 @@ import { storyblokEditable } from '@storyblok/react';
 import StationsPageComponent from '../StationsPage';
 import stationData from '../../app/stations/station-data';
 
-const StationsPage = ({ blok }: { blok: any }) => {
+interface StationItem {
+  id: string;
+  name: string;
+  frequency: string;
+  format: string;
+  logo: string;
+  description: string;
+  fullContent: string;
+  color: string;
+}
+
+interface StationsPageStoryblok {
+  _uid: string;
+  component: 'stations_page';
+  title?: string;
+  description?: string;
+  stations?: {
+    id: string;
+    name: string;
+    frequency: string;
+    format: string;
+    logo: {
+      filename: string;
+      alt?: string;
+    };
+    description: string;
+    fullContent: string;
+    color: string;
+  }[];
+  [key: string]: any;
+}
+
+const StationsPage = ({ blok }: { blok: StationsPageStoryblok }) => {
+  // Use Storyblok data if available, otherwise fall back to static data
+  const stations = blok.stations && blok.stations.length > 0 
+    ? blok.stations.map(station => ({
+        id: station.id || '',
+        name: station.name || '',
+        frequency: station.frequency || '',
+        format: station.format || '',
+        logo: station.logo?.filename || '',
+        description: station.description || '',
+        fullContent: station.fullContent || '',
+        color: station.color || '#000000'
+      }))
+    : stationData;
+
   return (
     <div {...storyblokEditable(blok)}>
-      <StationsPageComponent stations={stationData} />
+      <StationsPageComponent 
+        stations={stations} 
+        title={blok.title}
+        description={blok.description}
+      />
     </div>
   );
 };

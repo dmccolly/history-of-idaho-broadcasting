@@ -1,0 +1,63 @@
+{
+  "name": "station_item",
+  "display_name": "Station Item",
+  "schema": {
+    "id": {
+      "type": "text",
+      "pos": 0,
+      "display_name": "Station ID",
+      "required": true,
+      "description": "Unique identifier for the station (e.g., kboi, krvb)"
+    },
+    "name": {
+      "type": "text",
+      "pos": 1,
+      "display_name": "Station Name",
+      "required": true,
+      "description": "Call letters of the station (e.g., KBOI, KRVB)"
+    },
+    "frequency": {
+      "type": "text",
+      "pos": 2,
+      "display_name": "Frequency",
+      "required": true,
+      "description": "Broadcast frequency (e.g., 670 AM, 94.9 FM)"
+    },
+    "format": {
+      "type": "text",
+      "pos": 3,
+      "display_name": "Format",
+      "required": true,
+      "description": "Station format (e.g., News/Talk, Adult Album Alternative)"
+    },
+    "logo": {
+      "type": "asset",
+      "pos": 4,
+      "display_name": "Station Logo",
+      "required": true,
+      "description": "Logo image for the station"
+    },
+    "description": {
+      "type": "textarea",
+      "pos": 5,
+      "display_name": "Short Description",
+      "required": true,
+      "description": "Brief description of the station (displayed on cards)"
+    },
+    "fullContent": {
+      "type": "richtext",
+      "pos": 6,
+      "display_name": "Full Content",
+      "required": true,
+      "description": "Detailed information about the station (displayed in modal)"
+    },
+    "color": {
+      "type": "text",
+      "pos": 7,
+      "display_name": "Brand Color",
+      "required": false,
+      "default_value": "#0070f3",
+      "description": "Brand color for the station (hex code)"
+    }
+  }
+}
