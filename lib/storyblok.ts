@@ -8,10 +8,9 @@ import Hero from '@/components/storyblok/Hero'
 import ContentSection from '@/components/storyblok/ContentSection'
 import Features from '@/components/storyblok/Features'
 import FeatureItem from '@/components/storyblok/FeatureItem'
-   1 import CTA from '@/components/storyblok/CTA'
-   2 import Gallery from '@/components/storyblok/Gallery'
-   3 import VideoItem from '@/components/storyblok/VideoItem'
-storyblokInit({
+import CTA from '@/components/storyblok/CTA'
+import Gallery from '@/components/storyblok/Gallery'
+import VideoItem from '@/components/storyblok/VideoItem'storyblokInit({
   accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
   use: [apiPlugin],
  components: {
