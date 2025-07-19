@@ -10,7 +10,8 @@ import Features from '@/components/storyblok/Features'
 import FeatureItem from '@/components/storyblok/FeatureItem'
 import CTA from '@/components/storyblok/CTA'
 import Gallery from '@/components/storyblok/Gallery'
-import VideoItem from '@/components/storyblok/VideoItem'storyblokInit({
+import VideoItem from '@/components/storyblok/VideoItem'
+storyblokInit({
   accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
   use: [apiPlugin],
  components: {
