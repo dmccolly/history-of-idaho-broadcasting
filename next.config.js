@@ -27,9 +27,6 @@ const nextConfig = {
     onDemandEntries: {
           maxInactiveAge: 25 * 1000,
           pagesBufferLength: 2,
-    },
-    env: {
-      STORYBLOK_ACCESS_TOKEN: process.env.STORYBLOK_ACCESS_TOKEN,
     }
 }
 
