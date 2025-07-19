@@ -19,7 +19,7 @@ storyblokInit({
  'blog-listing': BlogListing,
  'navigation': Navigation,
  'navigation_item': NavigationItem,
-  page': Page,
+  'page': Page,
   'hero': Hero,
   'content_section': ContentSection,
   'features': Features,
