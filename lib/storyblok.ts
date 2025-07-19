@@ -15,20 +15,20 @@ storyblokInit({
   accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
   use: [apiPlugin],
  components: {
-    2     'blog-post': BlogPost,
-    3     'blog-listing': BlogListing,
-    4     'navigation': Navigation,
-    5     'navigation_item': NavigationItem,
-    6     'page': Page,
-    7     'hero': Hero,
-    8     'content_section': ContentSection,
-    9     'features': Features,
-   10     'feature_item': FeatureItem,
-   11     'cta': CTA,
-   12     'video_gallery': Gallery, // Map Storyblok component 'video_gallery' to your Gallery React
+ 'blog-post': BlogPost,
+ 'blog-listing': BlogListing,
+ 'navigation': Navigation,
+ 'navigation_item': NavigationItem,
+  page': Page,
+  'hero': Hero,
+  'content_section': ContentSection,
+  'features': Features,
+  'feature_item': FeatureItem,
+  'cta': CTA,
+  'video_gallery': Gallery, // Map Storyblok component 'video_gallery' to your Gallery React
       component
-   13     'video_item': VideoItem,   // Map Storyblok component 'video_item' to your new VideoItem React
+   'video_item': VideoItem,   // Map Storyblok component 'video_item' to your new VideoItem React
       component
-   14   },
+ },
 
 export { storyblokInit, getStoryblokApi, StoryblokComponent, storyblokEditable }
